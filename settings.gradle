@@ -1,0 +1,4 @@
+rootProject.name='Robbie'
+include ':app'
+include ':widgets'
+include ':androidtools'
