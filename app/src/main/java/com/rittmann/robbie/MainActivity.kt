@@ -1,40 +1,51 @@
 package com.rittmann.robbie
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import com.rittmann.widgets.dialog.DialogUtil
+import kotlinx.android.synthetic.main.activity_main.show_dialogs
+import kotlinx.android.synthetic.main.activity_main.show_progress
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-    }
 
-    override fun onResume() {
-        super.onResume()
+        show_progress.setOnClickListener {
+            start<ProgressActivity>()
+        }
 
-        findViewById<View>(R.id.layout).post {
-            DialogUtil().init(this, "Testing ok show", "Title", ok = true, show = true)
+        show_dialogs.setOnClickListener {
+            findViewById<View>(R.id.layout).post {
+                DialogUtil().init(this, "Testing ok show", "Title", ok = true, show = true)
 
-            DialogUtil().init(
-                this,
-                "Testing ok cancelable false",
-                "Title",
-                ok = true,
-                show = true,
-                cancelable = false
-            )
+                DialogUtil().init(
+                    this,
+                    "Testing ok cancelable false",
+                    "Title",
+                    ok = true,
+                    show = true,
+                    cancelable = false
+                )
 
-            DialogUtil().init(
-                this,
-                "Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger textTesting ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger textTesting ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text",
-                "Title",
-                ok = false,
-                show = true,
-                cancelable = false
-            )
+                DialogUtil().init(
+                    this,
+                    "Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger textTesting ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger textTesting ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text",
+                    "Title",
+                    ok = false,
+                    show = true,
+                    cancelable = false
+                )
+            }
         }
     }
+}
+
+inline fun <reified A : Activity> Context.start(configIntent: Intent.() -> Unit = {}) {
+    startActivity(Intent(this, A::class.java).apply(configIntent))
 }
