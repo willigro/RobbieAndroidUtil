@@ -1,32 +1,38 @@
 package com.rittmann.baselifecycle.base
 
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import com.rittmann.baselifecycle.keyboard.KeyboardEventListenerInterface
 import com.rittmann.baselifecycle.keyboard.hideKeyboard
 import com.rittmann.baselifecycle.keyboard.isKeyboardOpen
 import com.rittmann.baselifecycle.keyboard.setKeyboardEventListener
 
-class BaseActivity : AppCompatActivity() {
+open class BaseActivity : AppCompatActivity() {
 
     open var resIdViewReference: Int = 0
 
     open fun showProgress(closeKeyboard: Boolean = false) {
         if (closeKeyboard && isKeyboardOpen(findViewById(resIdViewReference))) {
             hideKeyboardAndExecute {
-                // todo implement show
+                Toast.makeText(this@BaseActivity, "show with hide keyboard", Toast.LENGTH_SHORT)
+                    .show()
             }
         } else {
-            // todo implement show
+            Toast.makeText(this@BaseActivity, "show without hide keyboard", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
     open fun hideProgress(closeKeyboard: Boolean = false) {
         if (closeKeyboard && isKeyboardOpen(findViewById(resIdViewReference))) {
             hideKeyboardAndExecute {
-                // todo implement hide
+                Toast.makeText(this@BaseActivity, "show with show keyboard", Toast.LENGTH_SHORT)
+                    .show()
             }
         } else {
-            // todo implement hide
+            Toast.makeText(this@BaseActivity, "show without show keyboard", Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
@@ -39,5 +45,12 @@ class BaseActivity : AppCompatActivity() {
             })
 
         hideKeyboard(this@BaseActivity, findViewById(resIdViewReference))
+    }
+
+    fun observeLoading(baseViewModel: BaseViewModel) {
+        baseViewModel.isLoading.observe(this, Observer {
+            if (it == true) showProgress()
+            else hideProgress()
+        })
     }
 }

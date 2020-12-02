@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.rittmann.widgets.dialog.DialogUtil
 import kotlinx.android.synthetic.main.activity_main.show_dialogs
@@ -43,6 +44,10 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
+    }
+
+    fun show(){
+        Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show()
     }
 }
 
