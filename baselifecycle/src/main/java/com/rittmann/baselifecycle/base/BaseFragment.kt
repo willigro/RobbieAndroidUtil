@@ -1,4 +1,4 @@
-package com.rittmann.baselifecycle
+package com.rittmann.baselifecycle.base
 
 import androidx.fragment.app.Fragment
 
