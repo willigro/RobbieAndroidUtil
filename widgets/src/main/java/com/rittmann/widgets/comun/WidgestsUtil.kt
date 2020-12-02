@@ -1,4 +1,4 @@
-package com.rittmann.widgets.dialog
+package com.rittmann.widgets.comun
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import androidx.appcompat.app.AppCompatActivity
 
-object AndroidUtil {
+object WidgestsUtil {
 
     fun getPercentHeight(context: Context, percent: Float): Int {
         val displayMetrics = DisplayMetrics()

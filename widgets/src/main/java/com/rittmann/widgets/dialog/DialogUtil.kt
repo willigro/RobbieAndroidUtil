@@ -15,6 +15,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.TextView
 import com.rittmann.widgets.R
+import com.rittmann.widgets.comun.WidgestsUtil
 
 open class DialogUtil {
 
@@ -117,13 +118,13 @@ open class DialogUtil {
                     view: WebView,
                     url: String?
                 ): Boolean {
-                    url?.also { AndroidUtil.openLinkIntoBrowse(view.context, url) }
+                    url?.also { WidgestsUtil.openLinkIntoBrowse(view.context, url) }
                     return true
                 }
             }
 
-            val pxSides = AndroidUtil.convertToPX(16f, TypedValue.COMPLEX_UNIT_PX, context)
-            val pxTop = AndroidUtil.convertToPX(10f, TypedValue.COMPLEX_UNIT_PX, context)
+            val pxSides = WidgestsUtil.convertToPX(16f, TypedValue.COMPLEX_UNIT_PX, context)
+            val pxTop = WidgestsUtil.convertToPX(10f, TypedValue.COMPLEX_UNIT_PX, context)
             val head =
                 "<head><style type=\"text/css\">" +
 //                        "@font-face {font-family: Ubuntu;src: url(\"file:///android_asset/font/ubuntu.ttf\")} " +
