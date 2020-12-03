@@ -1,38 +1,46 @@
 package com.rittmann.baselifecycle.base
 
-import android.widget.Toast
+import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.rittmann.baselifecycle.keyboard.KeyboardEventListenerInterface
 import com.rittmann.baselifecycle.keyboard.hideKeyboard
 import com.rittmann.baselifecycle.keyboard.isKeyboardOpen
 import com.rittmann.baselifecycle.keyboard.setKeyboardEventListener
+import com.rittmann.widgets.progress.ProgressVisibleControl
 
 open class BaseActivity : AppCompatActivity() {
 
+    private lateinit var progressVisibleControl: ProgressVisibleControl
     open var resIdViewReference: Int = 0
 
-    open fun showProgress(closeKeyboard: Boolean = false) {
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+        progressVisibleControl = ProgressVisibleControl.init(this)
+    }
+
+    open fun showProgress(
+        closeKeyboard: Boolean = false,
+        cancelable: Boolean = false,
+        callback: (() -> Unit)? = null
+    ) {
         if (closeKeyboard && isKeyboardOpen(findViewById(resIdViewReference))) {
             hideKeyboardAndExecute {
-                Toast.makeText(this@BaseActivity, "show with hide keyboard", Toast.LENGTH_SHORT)
-                    .show()
+                ProgressVisibleControl.show(cancelable, callback)
             }
         } else {
-            Toast.makeText(this@BaseActivity, "show without hide keyboard", Toast.LENGTH_SHORT)
-                .show()
+            ProgressVisibleControl.show(cancelable, callback)
         }
     }
 
     open fun hideProgress(closeKeyboard: Boolean = false) {
         if (closeKeyboard && isKeyboardOpen(findViewById(resIdViewReference))) {
             hideKeyboardAndExecute {
-                Toast.makeText(this@BaseActivity, "hide with hide keyboard", Toast.LENGTH_SHORT)
-                    .show()
+                ProgressVisibleControl.hide()
             }
         } else {
-            Toast.makeText(this@BaseActivity, "hide without hide keyboard", Toast.LENGTH_SHORT)
-                .show()
+            ProgressVisibleControl.hide()
         }
     }
 
