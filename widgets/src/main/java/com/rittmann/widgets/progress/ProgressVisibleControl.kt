@@ -7,8 +7,8 @@ object ProgressVisibleControl {
 
     private var progress: Progress? = null
 
-    fun init(activity: AppCompatActivity): ProgressVisibleControl {
-        if (progress == null) progress = Progress(activity)
+    fun init(activity: AppCompatActivity, viewResId: Int): ProgressVisibleControl {
+        if (progress == null) progress = Progress(activity, viewResId)
         return this
     }
 

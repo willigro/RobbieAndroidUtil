@@ -1,6 +1,7 @@
 package com.rittmann.androidtools.log
 
 import android.util.Log
+import com.rittmann.androidtools.BuildConfig
 
 object LogUtil {
 
@@ -10,6 +11,7 @@ object LogUtil {
         when (clause) {
             Clause.DEBUG -> {
                 if (BuildConfig.DEBUG) {
+
                     doLog(logType, tag, msg)
                 }
             }

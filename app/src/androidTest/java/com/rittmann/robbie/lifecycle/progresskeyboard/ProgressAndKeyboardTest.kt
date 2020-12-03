@@ -8,6 +8,9 @@ import com.rittmann.robbie.support.ExpressoUtil.checkToast
 import com.rittmann.robbie.support.ExpressoUtil.checkValue
 import com.rittmann.robbie.support.ExpressoUtil.performClick
 import com.rittmann.robbie.support.ExpressoUtil.putValue
+import com.rittmann.robbie.support.ExpressoUtil.putValueTextView
+import com.rittmann.robbie.support.ExpressoUtil.viewDoesNotExists
+import com.rittmann.robbie.support.ExpressoUtil.viewNotIsDisplayed
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -23,7 +26,7 @@ class ProgressAndKeyboardTest : ActivityTest() {
         }
         val value = "Showing progress"
 
-        putValue(R.id.labelProgress, value)
+        putValueTextView(R.id.labelProgress, value)
 
         checkValue(R.id.labelProgress, value)
     }
@@ -31,30 +34,62 @@ class ProgressAndKeyboardTest : ActivityTest() {
     @Test
     fun showProgressAndHideKeyboard() {
         val scenario = getActivity<BaseActivityImpl>()
+
         performClick(R.id.editOne)
-        Thread.sleep(delay)
+
         scenario.onActivity {
             it.showProgress(true)
         }
-        checkToast("show with hide keyboard")
+
+        val value = "Showing progress"
+
+        putValueTextView(R.id.labelProgress, value)
+
+        checkValue(R.id.labelProgress, value)
     }
 
     @Test
     fun hideProgress() {
-        getActivity<BaseActivityImpl>().onActivity {
+        val scenario = getActivity<BaseActivityImpl>()
+
+        scenario.onActivity {
+            it.showProgress()
+        }
+
+        val value = "Hiding progress"
+
+        putValueTextView(R.id.labelProgress, value)
+
+        checkValue(R.id.labelProgress, value)
+
+        scenario.onActivity {
             it.hideProgress()
         }
-        checkToast("hide without hide keyboard")
+
+        viewDoesNotExists(value)
     }
 
     @Test
     fun hideProgressAndHideKeyboard() {
         val scenario = getActivity<BaseActivityImpl>()
+
         performClick(R.id.editOne)
         Thread.sleep(delay)
+
+        scenario.onActivity {
+            it.showProgress(true)
+        }
+
+        val value = "Hiding progress"
+
+        putValueTextView(R.id.labelProgress, value)
+
+        checkValue(R.id.labelProgress, value)
+
         scenario.onActivity {
             it.hideProgress(true)
         }
-        checkToast("hide with hide keyboard")
+
+        viewDoesNotExists(value)
     }
 }
