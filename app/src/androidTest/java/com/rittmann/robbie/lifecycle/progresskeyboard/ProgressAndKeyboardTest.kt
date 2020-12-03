@@ -5,7 +5,9 @@ import com.rittmann.robbie.R
 import com.rittmann.robbie.base.BaseActivityImpl
 import com.rittmann.robbie.support.ActivityTest
 import com.rittmann.robbie.support.ExpressoUtil.checkToast
+import com.rittmann.robbie.support.ExpressoUtil.checkValue
 import com.rittmann.robbie.support.ExpressoUtil.performClick
+import com.rittmann.robbie.support.ExpressoUtil.putValue
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -19,7 +21,11 @@ class ProgressAndKeyboardTest : ActivityTest() {
         getActivity<BaseActivityImpl>().onActivity {
             it.showProgress()
         }
-        checkToast("show without hide keyboard")
+        val value = "Showing progress"
+
+        putValue(R.id.labelProgress, value)
+
+        checkValue(R.id.labelProgress, value)
     }
 
     @Test
