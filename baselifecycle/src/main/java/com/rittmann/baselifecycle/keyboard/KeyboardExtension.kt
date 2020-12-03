@@ -68,6 +68,11 @@ fun AppCompatActivity.showKeyboard(context: Context, view: View?) {
     view?.let { imm.showSoftInput(it, InputMethodManager.SHOW_IMPLICIT) }
 }
 
+fun AppCompatActivity.forceShowKeyboard(view: View?) {
+    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.showSoftInput(view, InputMethodManager.SHOW_FORCED)
+}
+
 fun AppCompatActivity.hideKeyboard(context: Context, view: View?) {
     val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE)
             as InputMethodManager

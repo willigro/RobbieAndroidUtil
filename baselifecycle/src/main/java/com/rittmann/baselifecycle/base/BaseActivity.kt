@@ -27,11 +27,11 @@ open class BaseActivity : AppCompatActivity() {
     open fun hideProgress(closeKeyboard: Boolean = false) {
         if (closeKeyboard && isKeyboardOpen(findViewById(resIdViewReference))) {
             hideKeyboardAndExecute {
-                Toast.makeText(this@BaseActivity, "show with show keyboard", Toast.LENGTH_SHORT)
+                Toast.makeText(this@BaseActivity, "hide with hide keyboard", Toast.LENGTH_SHORT)
                     .show()
             }
         } else {
-            Toast.makeText(this@BaseActivity, "show without show keyboard", Toast.LENGTH_SHORT)
+            Toast.makeText(this@BaseActivity, "hide without hide keyboard", Toast.LENGTH_SHORT)
                 .show()
         }
     }
