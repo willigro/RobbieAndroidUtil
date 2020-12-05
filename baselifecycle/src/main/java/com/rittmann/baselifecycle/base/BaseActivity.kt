@@ -1,7 +1,5 @@
 package com.rittmann.baselifecycle.base
 
-import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.rittmann.baselifecycle.keyboard.KeyboardEventListenerInterface
