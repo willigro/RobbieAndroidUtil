@@ -19,7 +19,7 @@ class ExportDatabase(folder: String) {
     private val rootPath: String =
         android.os.Environment.getExternalStorageDirectory().toString() + "/$folder/Export/"
 
-    private var resultSet = JSONArray()
+    var resultSet = JSONArray()
 
     fun toFile() {
         val locale = Locale("pt", "BR")
