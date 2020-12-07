@@ -59,12 +59,15 @@ class ExportDatabase(folder: String) {
                         val rowObject = JSONObject()
                         rowObject.put("table_name", it)
                         for (i in 0 until totalColumn) {
-                            if (cursor.getColumnName(i) != null) {
+                            val name = cursor.getColumnName(i)
+                            val str = cursor.getString(i)
+
+                            if (name != null) {
                                 try {
-                                    if (cursor.getString(i) != null) {
-                                        rowObject.put(cursor.getColumnName(i), cursor.getString(i))
+                                    if (str != null) {
+                                        rowObject.put(name, str)
                                     } else {
-                                        rowObject.put(cursor.getColumnName(i), "")
+                                        rowObject.put(name, "")
                                     }
                                 } catch (e: Exception) {
                                     e.printStackTrace()
@@ -72,7 +75,6 @@ class ExportDatabase(folder: String) {
                             }
                         }
                         resultSet.put(rowObject)
-                        cursor.moveToNext()
                     }
 
                     cursor.close()
