@@ -1,11 +1,14 @@
 package com.rittmann.robbie
 
+import android.Manifest
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.rittmann.androidtools.log.log
 import com.rittmann.baselifecycle.base.BaseActivity
 import com.rittmann.robbie.sqlite.HelperDAO
@@ -57,7 +60,7 @@ class MainActivity : BaseActivity() {
 
         execute_sql.setOnClickListener {
             showProgress()
-            tableOne()
+            checkWriteStoragePermissions()
         }
     }
 
@@ -89,7 +92,8 @@ class MainActivity : BaseActivity() {
 
             it.toString().log(beautiful = false)
             it.mock(dao.writableDatabase, times = 5, resetTable = true) {
-                ExportDatabase().export(HelperDAO(this).writableDatabase) {
+                ExportDatabase("Main").export(HelperDAO(this).writableDatabase) { export ->
+                    export.toFile()
                     hideProgress()
                 }
             }
@@ -129,8 +133,44 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    fun show() {
-        Toast.makeText(this, "toast", Toast.LENGTH_SHORT).show()
+    private fun checkWriteStoragePermissions() {
+        val permissionsList = ArrayList<String>()
+
+        addPermission(permissionsList, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+
+        if (permissionsList.size > 0) {
+            ActivityCompat.requestPermissions(
+                this,
+                permissionsList.toTypedArray(),
+                1
+            )
+        } else
+            tableOne()
+    }
+
+    private fun addPermission(permissionsList: MutableList<String>, permission: String) {
+        if (ContextCompat.checkSelfPermission(
+                this,
+                permission
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            permissionsList.add(permission)
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        when (requestCode) {
+            1 -> {
+                if (PackageManager.PERMISSION_GRANTED == grantResults[0]) {
+                    tableOne()
+                }
+            }
+            else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
     }
 }
 
