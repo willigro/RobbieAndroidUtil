@@ -3,6 +3,24 @@ package com.rittmann.sqlitetools.mocksqlite
 import android.database.sqlite.SQLiteDatabase
 
 object TableSchema {
+
+    fun getAllTables(db: SQLiteDatabase): ArrayList<String> {
+        val cursor = db.rawQuery(
+            "SELECT name FROM sqlite_master WHERE type ='table' AND name NOT LIKE 'sqlite_%' AND name != 'android_metadata';",
+            null
+        )
+
+        cursor.use {
+            val nameIdx = cursor.getColumnIndexOrThrow("name")
+
+            val tables = ArrayList<String>()
+            while (cursor.moveToNext()) {
+                tables.add(cursor.getString(nameIdx))
+            }
+            return tables
+        }
+    }
+
     fun getDetails(
         db: SQLiteDatabase,
         table: String,

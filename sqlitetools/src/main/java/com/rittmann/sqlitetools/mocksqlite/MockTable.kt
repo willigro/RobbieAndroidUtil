@@ -18,6 +18,7 @@ fun Table.mock(
     db: SQLiteDatabase,
     times: Int,
     resetTable: Boolean = false,
+    closeDb: Boolean = true,
     callback: (() -> Unit)? = null
 ) {
     GlobalScope.launch {
@@ -69,7 +70,8 @@ fun Table.mock(
                     db.insert(tbName, null, it)
                 }
             }
-            db.close()
+            if (closeDb)
+                db.close()
             withContext(Dispatchers.Main) {
                 callback?.invoke()
             }
