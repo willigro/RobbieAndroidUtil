@@ -77,16 +77,16 @@ fun AppCompatActivity.dialog(
  * */
 open class DialogUtil {
 
-    private lateinit var dialogView: View
     private lateinit var context: Context
-    private var dialog: AlertDialog? = null
-    private var message: String? = null
-    private var title: String? = null
-    private var fromHtml: Boolean = false
-    private var cancelable: Boolean = false
-    private var isOk: Boolean = false
-    private val defaultListener = View.OnClickListener { dialog?.dismiss() }
-    private var resId: Int = R.layout.dialog_layout
+    lateinit var dialogView: View
+    var dialog: AlertDialog? = null
+    var message: String? = null
+    var title: String? = null
+    var fromHtml: Boolean = false
+    var cancelable: Boolean = false
+    var isOk: Boolean = false
+    val defaultListener = View.OnClickListener { dialog?.dismiss() }
+    var resId: Int = R.layout.dialog_layout
 
     companion object {
         var defaultTitle: String = ""
