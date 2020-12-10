@@ -14,8 +14,52 @@ import android.view.WindowManager.LayoutParams.TYPE_APPLICATION_PANEL
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.rittmann.widgets.R
 import com.rittmann.widgets.comun.WidgestsUtil
+
+fun Fragment.dialog(
+    title: String = DialogUtil.defaultTitle,
+    message: String,
+    cancelable: Boolean = false,
+    ok: Boolean = false,
+    fromHtml: Boolean = false,
+    resId: Int? = null,
+    show: Boolean = false
+): DialogUtil {
+    return DialogUtil().init(
+        requireContext(),
+        title,
+        message,
+        cancelable,
+        ok,
+        fromHtml,
+        resId = resId,
+        show = show
+    )
+}
+
+fun AppCompatActivity.dialog(
+    title: String = DialogUtil.defaultTitle,
+    message: String,
+    cancelable: Boolean = false,
+    ok: Boolean = false,
+    fromHtml: Boolean = false,
+    resId: Int? = null,
+    show: Boolean = false
+): DialogUtil {
+    return DialogUtil().init(
+        this,
+        title,
+        message,
+        cancelable,
+        ok,
+        fromHtml,
+        resId = resId,
+        show = show
+    )
+}
 
 /**
  *
@@ -44,11 +88,15 @@ open class DialogUtil {
     private val defaultListener = View.OnClickListener { dialog?.dismiss() }
     private var resId: Int = R.layout.dialog_layout
 
+    companion object {
+        var defaultTitle: String = ""
+    }
+
     @SuppressLint("InflateParams")
     fun init(
         context: Context,
         message: String,
-        title: String,
+        title: String = defaultTitle,
         cancelable: Boolean = false,
         ok: Boolean = false,
         fromHtml: Boolean = false,
