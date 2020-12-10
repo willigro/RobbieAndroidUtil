@@ -1,15 +1,12 @@
 package com.rittmann.robbie
 
 import android.Manifest
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
-import android.view.View
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.rittmann.androidtools.log.log
+import com.rittmann.androidtools.start
 import com.rittmann.baselifecycle.base.BaseActivity
 import com.rittmann.robbie.sqlite.HelperDAO
 import com.rittmann.sqlitetools.mocksqlite.ExportDatabase
@@ -17,7 +14,6 @@ import com.rittmann.sqlitetools.mocksqlite.RuleType
 import com.rittmann.sqlitetools.mocksqlite.TableRule
 import com.rittmann.sqlitetools.mocksqlite.TableSchema
 import com.rittmann.sqlitetools.mocksqlite.mock
-import com.rittmann.widgets.dialog.DialogUtil
 import kotlinx.android.synthetic.main.activity_main.execute_sql
 import kotlinx.android.synthetic.main.activity_main.show_dialogs
 import kotlinx.android.synthetic.main.activity_main.show_progress
@@ -35,27 +31,7 @@ class MainActivity : BaseActivity() {
         }
 
         show_dialogs.setOnClickListener {
-            findViewById<View>(R.id.layout).post {
-                DialogUtil().init(this, "Testing ok show", "Title", ok = true, show = true)
-
-                DialogUtil().init(
-                    this,
-                    "Testing ok cancelable false",
-                    "Title",
-                    ok = true,
-                    show = true,
-                    cancelable = false
-                )
-
-                DialogUtil().init(
-                    this,
-                    "Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger textTesting ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger textTesting ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text Testing ok cancelable false with larger text",
-                    "Title",
-                    ok = false,
-                    show = true,
-                    cancelable = false
-                )
-            }
+            start<DialogsActivity>()
         }
 
         execute_sql.setOnClickListener {
@@ -172,8 +148,4 @@ class MainActivity : BaseActivity() {
             else -> super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         }
     }
-}
-
-inline fun <reified A : Activity> Context.start(configIntent: Intent.() -> Unit = {}) {
-    startActivity(Intent(this, A::class.java).apply(configIntent))
 }

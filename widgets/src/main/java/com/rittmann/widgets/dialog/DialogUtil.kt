@@ -17,6 +17,20 @@ import android.widget.TextView
 import com.rittmann.widgets.R
 import com.rittmann.widgets.comun.WidgestsUtil
 
+/**
+ *
+ * Layout need views id:
+
+ * [dialogTitleTextView] - Title - TextView REQUIRED
+ * [btnCancel] - Negative Button - AppCompatButton REQUIRED
+ * [btnConclude] - Positive Button - AppCompatButton REQUIRED
+
+ * [dialogLayout] Layout - LinearLayout
+ * [imageDialog] Icon - ImageView
+ * [dialogWebView] - Content - WebView
+ * [scrollContentDialog] - Wrap Content (dialogSubtitleTextView) - ScrollView
+ * [dialogSubtitleTextView] - Content - TextView
+ * */
 open class DialogUtil {
 
     private lateinit var dialogView: View
@@ -28,6 +42,7 @@ open class DialogUtil {
     private var cancelable: Boolean = false
     private var isOk: Boolean = false
     private val defaultListener = View.OnClickListener { dialog?.dismiss() }
+    private var resId: Int = R.layout.dialog_layout
 
     @SuppressLint("InflateParams")
     fun init(
@@ -37,9 +52,14 @@ open class DialogUtil {
         cancelable: Boolean = false,
         ok: Boolean = false,
         fromHtml: Boolean = false,
+        resId: Int? = null,
         show: Boolean = false
     ): DialogUtil {
-        this.dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_layout, null, true)
+        resId?.also {
+            setResLayout(it)
+        }
+
+        this.dialogView = LayoutInflater.from(context).inflate(getResLayout(), null, true)
         this.context = context
         this.cancelable = cancelable
         this.message = message
@@ -53,6 +73,12 @@ open class DialogUtil {
         return this@DialogUtil
     }
 
+    private fun getResLayout(): Int = resId
+
+    fun setResLayout(resId: Int) {
+        this.resId = resId
+    }
+
     fun handleShow(
         onClickConclude: View.OnClickListener? = defaultListener,
         onClickCancel: View.OnClickListener? = defaultListener
@@ -63,7 +89,7 @@ open class DialogUtil {
         show()
     }
 
-    private fun handleButtons(
+    fun handleButtons(
         onClickConclude: View.OnClickListener? = defaultListener,
         onClickCancel: View.OnClickListener? = defaultListener
     ) {
@@ -76,7 +102,7 @@ open class DialogUtil {
     }
 
     private fun showButton(onClick: View.OnClickListener?, id: Int, s: String) {
-        dialogView.findViewById<AppCompatButton>(id).apply {
+        dialogView.findViewById<AppCompatButton>(id)?.apply {
             text = s
             visibility = View.VISIBLE
             setOnClickListener(onClick)
@@ -85,7 +111,7 @@ open class DialogUtil {
 
     private fun handleTitle() {
         title?.also {
-            dialogView.findViewById<TextView>(R.id.dialogTitleTextView).apply {
+            dialogView.findViewById<TextView>(R.id.dialogTitleTextView)?.apply {
                 text = it
                 visibility = View.VISIBLE
             }
@@ -97,8 +123,8 @@ open class DialogUtil {
             if (fromHtml) {
                 handleMessageWithHTML(message)
             } else {
-                dialogView.findViewById<View>(R.id.scrollContentDialog).visibility = View.VISIBLE
-                dialogView.findViewById<TextView>(R.id.dialogSubtitleTextView).apply {
+                dialogView.findViewById<View>(R.id.scrollContentDialog)?.visibility = View.VISIBLE
+                dialogView.findViewById<TextView>(R.id.dialogSubtitleTextView)?.apply {
                     visibility = View.VISIBLE
                     text = message
                 }
@@ -108,7 +134,7 @@ open class DialogUtil {
 
     @SuppressLint("SetJavaScriptEnabled")
     private fun handleMessageWithHTML(message: String) {
-        dialogView.findViewById<WebView>(R.id.dialogWebView).apply {
+        dialogView.findViewById<WebView>(R.id.dialogWebView)?.apply {
             visibility = View.VISIBLE
             settings.javaScriptEnabled = true
             isScrollbarFadingEnabled = true
