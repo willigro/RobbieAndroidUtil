@@ -79,7 +79,10 @@ class Progress(private val activity: AppCompatActivity, private val viewResId: I
     }
 
     fun dismiss() {
-        dialog?.dismiss()
+        val viewGroup: ViewGroup = activity.findViewById(viewResId)
+        viewGroup.post {
+            dialog?.dismiss()
+        }
     }
 
     fun isDismiss(function: () -> Unit) {
