@@ -22,23 +22,26 @@ class Progress(private val activity: AppCompatActivity, private val viewResId: I
     private var callbackOnPressed: OnBackPressedCallback? = null
 
     fun show(cancelable: Boolean = false, dismissCallback: (() -> Unit)? = null) {
-        if (dialog == null || dialog!!.isShowing.not()) {
-            this.cancelable = cancelable
+        val viewGroup: ViewGroup = activity.findViewById(viewResId)
 
-            AlertDialog.Builder(activity, R.style.CustomAlertDialog).apply {
-                setCancelable(cancelable)
-                val displayRectangle = Rect()
-                val window: Window = activity.window
-                window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
-                val viewGroup: ViewGroup = activity.findViewById(viewResId)
-                val dialogView: View = LayoutInflater.from(activity)
-                    .inflate(customView ?: R.layout.progress_layout, viewGroup, false)
-                dialogView.minimumWidth = ((displayRectangle.width() * 1f).toInt())
-                dialogView.minimumHeight = ((displayRectangle.height() * 1f).toInt())
-                setView(dialogView)
-                dialog = create()
-                dialog?.show()
-                config(dismissCallback)
+        viewGroup.post {
+            if (dialog == null || dialog!!.isShowing.not()) {
+                this.cancelable = cancelable
+
+                AlertDialog.Builder(activity, R.style.CustomAlertDialog).apply {
+                    setCancelable(cancelable)
+                    val displayRectangle = Rect()
+                    val window: Window = activity.window
+                    window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
+                    val dialogView: View = LayoutInflater.from(activity)
+                        .inflate(customView ?: R.layout.progress_layout, viewGroup, false)
+                    dialogView.minimumWidth = ((displayRectangle.width() * 1f).toInt())
+                    dialogView.minimumHeight = ((displayRectangle.height() * 1f).toInt())
+                    setView(dialogView)
+                    dialog = create()
+                    dialog?.show()
+                    config(dismissCallback)
+                }
             }
         }
     }
