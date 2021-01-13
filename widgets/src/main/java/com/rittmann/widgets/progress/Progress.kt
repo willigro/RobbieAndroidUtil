@@ -80,7 +80,7 @@ class Progress(private val activity: AppCompatActivity, private val viewResId: I
     }
 
     fun isDismiss(function: () -> Unit) {
-        if (dialog == null || dialog!!.isShowing.not()) function()
+        if (dialog == null || dialog!!.isShowing.not() && activity.isFinishing.not()) function()
     }
 
     companion object {
