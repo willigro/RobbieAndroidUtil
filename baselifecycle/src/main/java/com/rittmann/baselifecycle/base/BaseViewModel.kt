@@ -70,6 +70,18 @@ open class BaseViewModel : ViewModel() {
             }
         }
     }
+
+    fun executeMain(
+        scope: CoroutineScope = GlobalScope,
+        block: suspend () -> Unit
+    ) {
+        val s = viewModelScopeGen ?: scope
+        s.launch {
+            withContext(Dispatchers.Main) {
+                block()
+            }
+        }
+    }
 }
 
 /**
