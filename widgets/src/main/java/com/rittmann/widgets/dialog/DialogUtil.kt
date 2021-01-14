@@ -29,12 +29,12 @@ fun Fragment.dialog(
     show: Boolean = false
 ): DialogUtil {
     return DialogUtil().init(
-        requireContext(),
-        title,
-        message,
-        cancelable,
-        ok,
-        fromHtml,
+        context = requireContext(),
+        message = message,
+        title = title,
+        cancelable = cancelable,
+        ok = ok,
+        fromHtml = fromHtml,
         resId = resId,
         show = show
     )
@@ -50,12 +50,12 @@ fun AppCompatActivity.dialog(
     show: Boolean = false
 ): DialogUtil {
     return DialogUtil().init(
-        this,
-        title,
-        message,
-        cancelable,
-        ok,
-        fromHtml,
+        context = this,
+        message = message,
+        title = title,
+        cancelable = cancelable,
+        ok = ok,
+        fromHtml = fromHtml,
         resId = resId,
         show = show
     )
