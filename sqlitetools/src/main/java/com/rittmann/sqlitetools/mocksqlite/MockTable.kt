@@ -11,7 +11,7 @@ import java.util.*
 const val CHANCE_TO_BE_NULL = .1
 const val CHANCE_TO_BE_NEGATIVE = .5
 const val DEFAULT_MAX_STRING = 50
-const val DEFAULT_MAX_NUMBER = 1000.0
+const val DEFAULT_MAX_NUMBER = 1000
 const val TAG = "MockTable"
 
 fun Table.mock(
@@ -79,57 +79,51 @@ fun Table.mock(
     }
 }
 
-class MockRule(
-    var maxLength: Int = DEFAULT_MAX_STRING,
-    var maxValue: Double = DEFAULT_MAX_NUMBER,
-    var minValue: Double = 0.0,
-    var allowNegative: Boolean = false
-)
-
-fun getRule(tableRules: ArrayList<TableRule>, column: Column): MockRule {
-    val mockRule = MockRule()
-
+inline fun <reified T> getRule(tableRules: ArrayList<TableRules>, column: Column): T? {
     for (tRule in tableRules) {
         if (tRule.columnName == column.name) {
-            for (rule in tRule.rules) {
-                when (rule.type) {
-                    RuleType.MAX_LENGTH -> mockRule.maxLength = rule.value.toInt()
-                    RuleType.MAX_NUMBER -> mockRule.maxValue = rule.value
-                    RuleType.MIN_NUMBER -> mockRule.minValue = rule.value
-                    RuleType.ALLOW_NEGATIVE -> mockRule.allowNegative = rule.isTo
+            for (rule in tRule.columnRules) {
+                if (rule is T) {
+                    return rule
                 }
             }
             break
         }
     }
 
-    return mockRule
+    return null
 }
 
-fun randomReal(isNotNull: Boolean, mockRule: MockRule): Double? {
+fun randomReal(isNotNull: Boolean, columnRule: RealColumnRule?): Double? {
     if (isNotNull.not() and canBeNull()) return null
 
+    val rule: RealColumnRule =
+        columnRule ?: RealColumnRule(0.0, DEFAULT_MAX_NUMBER.toDouble(), false)
     val r = Random()
-    val res = mockRule.minValue + (mockRule.maxValue - mockRule.minValue) * r.nextDouble()
-    if (mockRule.allowNegative && r.nextDouble() > CHANCE_TO_BE_NEGATIVE) return res
-    return res * -1
-}
-
-fun randomInteger(isNotNull: Boolean, mockRule: MockRule): Int? {
-    if (isNotNull.not() and canBeNull()) return null
 
     val res =
-        (Random(System.nanoTime()).nextInt((mockRule.maxValue - mockRule.minValue + 1).toInt()) + mockRule.minValue).toInt()
-    if (mockRule.allowNegative && Math.random() > CHANCE_TO_BE_NEGATIVE) return res
+        rule.minNumber + (rule.maxNumber ?: DEFAULT_MAX_NUMBER - rule.minNumber) * r.nextDouble()
+
+    if (rule.allowNegatives && r.nextDouble() > CHANCE_TO_BE_NEGATIVE) return res
     return res * -1
 }
 
-fun randomString(isNotNull: Boolean, mockRule: MockRule): String? {
+fun randomInteger(isNotNull: Boolean, columnRule: IntegerColumnRule?): Int? {
+    if (isNotNull.not() and canBeNull()) return null
+
+    val res = (Random(System.nanoTime()).nextInt(
+        (columnRule?.maxNumber ?: DEFAULT_MAX_NUMBER - (columnRule?.minNumber ?: 0) + 1).toInt()
+    ) + (columnRule?.minNumber ?: 0))
+    if (columnRule?.allowNegatives == true && Math.random() > CHANCE_TO_BE_NEGATIVE) return res
+    return res * -1
+}
+
+fun randomString(isNotNull: Boolean, columnRule: TextColumnRule?): String? {
     if (isNotNull.not() and canBeNull()) return null
 
     val generator = Random()
     val randomStringBuilder = StringBuilder()
-    val randomLength: Int = generator.nextInt(mockRule.maxLength)
+    val randomLength: Int = generator.nextInt(columnRule?.maxLength ?: DEFAULT_MAX_STRING)
     var tempChar: Char
     for (i in 0 until randomLength) {
         tempChar = ((generator.nextInt(96) + 32).toChar())

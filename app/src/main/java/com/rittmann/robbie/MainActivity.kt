@@ -10,9 +10,11 @@ import com.rittmann.androidtools.start
 import com.rittmann.baselifecycle.base.BaseActivity
 import com.rittmann.robbie.sqlite.HelperDAO
 import com.rittmann.sqlitetools.mocksqlite.ExportDatabase
-import com.rittmann.sqlitetools.mocksqlite.RuleType
-import com.rittmann.sqlitetools.mocksqlite.TableRule
+import com.rittmann.sqlitetools.mocksqlite.IntegerColumnRule
+import com.rittmann.sqlitetools.mocksqlite.RealColumnRule
+import com.rittmann.sqlitetools.mocksqlite.TableRules
 import com.rittmann.sqlitetools.mocksqlite.TableSchema
+import com.rittmann.sqlitetools.mocksqlite.TextColumnRule
 import com.rittmann.sqlitetools.mocksqlite.mock
 import kotlinx.android.synthetic.main.activity_main.execute_sql
 import kotlinx.android.synthetic.main.activity_main.show_dialogs
@@ -40,42 +42,6 @@ class MainActivity : BaseActivity() {
         }
     }
 
-    private fun tableTwo() {
-        val dao = HelperDAO(this)
-        TableSchema.getDetails(
-            dao.readableDatabase,
-            table = "tb_test_two",
-            excludeColumns = arrayListOf("tb_id")
-        ).also {
-            it.tableRules.add(
-                TableRule("tb_text_not_null")
-                    .addRule(RuleType.MAX_LENGTH, 50)
-            )
-
-            it.tableRules.add(
-                TableRule("tb_integer_not_null")
-                    .addRule(RuleType.MIN_NUMBER, 1)
-                    .addRule(RuleType.MAX_NUMBER, 5)
-                    .addRule(RuleType.ALLOW_NEGATIVE, false)
-            )
-
-            it.tableRules.add(
-                TableRule("tb_real_not_null")
-                    .addRule(RuleType.MIN_NUMBER, 5)
-                    .addRule(RuleType.MAX_NUMBER, 25)
-                    .addRule(RuleType.ALLOW_NEGATIVE, true)
-            )
-
-            it.toString().log(beautiful = false)
-            it.mock(dao.writableDatabase, times = 5, resetTable = true) {
-                ExportDatabase("Main").export(HelperDAO(this).writableDatabase) { export ->
-                    export.toFile()
-                    hideProgress()
-                }
-            }
-        }
-    }
-
     private fun tableOne() {
         val dao = HelperDAO(this)
         TableSchema.getDetails(
@@ -84,27 +50,23 @@ class MainActivity : BaseActivity() {
             excludeColumns = arrayListOf("tb_id")
         ).also {
             it.tableRules.add(
-                TableRule("tb_text_not_null")
-                    .addRule(RuleType.MAX_LENGTH, 10)
+                TableRules("tb_text_not_null").addRule(TextColumnRule(50))
             )
 
             it.tableRules.add(
-                TableRule("tb_integer_not_null")
-                    .addRule(RuleType.MIN_NUMBER, 10)
-                    .addRule(RuleType.MAX_NUMBER, 30)
-                    .addRule(RuleType.ALLOW_NEGATIVE, true)
+                TableRules("tb_integer_not_null").addRule(IntegerColumnRule(10, 30, true))
             )
 
             it.tableRules.add(
-                TableRule("tb_real_not_null")
-                    .addRule(RuleType.MIN_NUMBER, .2)
-                    .addRule(RuleType.MAX_NUMBER, 3.0)
-                    .addRule(RuleType.ALLOW_NEGATIVE, true)
+                TableRules("tb_real_not_null").addRule(RealColumnRule(.2, 3.0, true))
             )
 
             it.toString().log(beautiful = false)
             it.mock(dao.writableDatabase, times = 5, resetTable = true) {
-                tableTwo()
+                ExportDatabase("Main").export(HelperDAO(this).writableDatabase) { export ->
+                    export.resultSet.toString().log()
+                    hideProgress()
+                }
             }
         }
     }

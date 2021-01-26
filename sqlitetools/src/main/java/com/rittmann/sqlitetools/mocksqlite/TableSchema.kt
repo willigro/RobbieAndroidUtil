@@ -1,6 +1,7 @@
 package com.rittmann.sqlitetools.mocksqlite
 
 import android.database.sqlite.SQLiteDatabase
+import com.rittmann.sqlitetools.mocksqlite.TableRules
 
 object TableSchema {
 
@@ -59,7 +60,7 @@ data class Table(
     val tbName: String,
     val columns: ArrayList<Column>
 ) {
-    var tableRules = arrayListOf<TableRule>()
+    var tableRules = arrayListOf<TableRules>()
 }
 
 data class Column(
