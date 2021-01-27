@@ -1,17 +1,23 @@
 package com.rittmann.sqlitetools.mocksqlite
 
+import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.text.ParseException
+import java.text.SimpleDateFormat
 import java.util.*
 
 const val CHANCE_TO_BE_NULL = .1
 const val CHANCE_TO_BE_NEGATIVE = .5
 const val DEFAULT_MAX_STRING = 50
 const val DEFAULT_MAX_NUMBER = 1000
+const val DEFAULT_CALENDAR_FORMAT = "yyyy-MM-dd HH:mm:ss"
+const val DEFAULT_CALENDAR_BETWEEN_YEAR = 30
 const val TAG = "MockTable"
 
 fun Table.mock(
@@ -34,33 +40,26 @@ fun Table.mock(
                 columns.forEach {
                     when (it.type) {
                         TableColumnType.TEXT -> {
-                            contentValues.put(
-                                it.name, randomString(
-                                    it.isNotNull, getRule(
-                                        tableRules,
-                                        it
-                                    )
-                                )
-                            )
+                            val ruleType = getRuleType(tableRules, it.name)
+
+                            val random = if (ruleType is TextColumnRule) {
+                                randomString(it.isNotNull, getRule(tableRules, it))
+                            } else {
+                                randomStringCalendar(it.isNotNull, getRule(tableRules, it))
+                            }
+
+                            contentValues.put(it.name, random)
                         }
+
                         TableColumnType.INTEGER -> {
                             contentValues.put(
-                                it.name, randomInteger(
-                                    it.isNotNull, getRule(
-                                        tableRules,
-                                        it
-                                    )
-                                )
+                                it.name, randomInteger(it.isNotNull, getRule(tableRules, it))
                             )
                         }
+
                         TableColumnType.REAL -> {
                             contentValues.put(
-                                it.name, randomReal(
-                                    it.isNotNull, getRule(
-                                        tableRules,
-                                        it
-                                    )
-                                )
+                                it.name, randomReal(it.isNotNull, getRule(tableRules, it))
                             )
                         }
                     }
@@ -77,6 +76,19 @@ fun Table.mock(
             }
         }
     }
+}
+
+fun getRuleType(tableRules: ArrayList<TableRules>, name: String): ColumnRule {
+    for (tRule in tableRules) {
+        if (tRule.columnName == name) {
+            for (rule in tRule.columnRules) {
+                return rule
+            }
+            break
+        }
+    }
+
+    return TextColumnRule()
 }
 
 inline fun <reified T> getRule(tableRules: ArrayList<TableRules>, column: Column): T? {
@@ -132,4 +144,57 @@ fun randomString(isNotNull: Boolean, columnRule: TextColumnRule?): String? {
     return randomStringBuilder.toString()
 }
 
+fun randomStringCalendar(isNotNull: Boolean, columnRule: CalendarColumnRule?): String? {
+    if (isNotNull.not() and canBeNull()) return null
+
+    val rule: CalendarColumnRule = columnRule ?: CalendarColumnRule(DEFAULT_CALENDAR_FORMAT)
+
+    // between
+    val res: Long = if (rule.between != null) {
+        val old = parseDate(rule.between.first)
+        val new = parseDate(rule.between.second)
+
+        (old.timeInMillis until new.timeInMillis).random()
+    } else {
+        val old = Calendar.getInstance().apply {
+            add(Calendar.YEAR, -DEFAULT_CALENDAR_BETWEEN_YEAR)
+        }
+        val new = Calendar.getInstance().apply {
+            add(Calendar.YEAR, DEFAULT_CALENDAR_BETWEEN_YEAR)
+        }
+
+        (old.timeInMillis until new.timeInMillis).random()
+    }
+
+    // by period
+
+
+    val calendar = Calendar.getInstance().apply {
+        timeInMillis = res
+    }
+
+    return dateFormat(calendar, rule.format).also {
+        Log.i(TAG, it)
+    }
+}
+
 fun canBeNull(): Boolean = Math.random() < CHANCE_TO_BE_NULL
+
+@SuppressLint("SimpleDateFormat")
+fun dateFormat(calendar: Calendar, format: String = DEFAULT_CALENDAR_FORMAT): String {
+    val sFormat = SimpleDateFormat(format)
+    sFormat.timeZone = calendar.timeZone
+    return sFormat.format(calendar.time)
+}
+
+@SuppressLint("SimpleDateFormat")
+fun parseDate(string: String, format: String = DEFAULT_CALENDAR_FORMAT): Calendar {
+    val calendar = Calendar.getInstance()
+    try {
+        calendar.time = SimpleDateFormat(format).parse(string)!!
+    } catch (e: ParseException) {
+        e.printStackTrace()
+    }
+
+    return calendar
+}

@@ -1,7 +1,6 @@
 package com.rittmann.sqlitetools.mocksqlite
 
 import android.database.sqlite.SQLiteDatabase
-import com.rittmann.sqlitetools.mocksqlite.TableRules
 
 object TableSchema {
 
@@ -61,6 +60,15 @@ data class Table(
     val columns: ArrayList<Column>
 ) {
     var tableRules = arrayListOf<TableRules>()
+
+    fun replace(tableRule: TableRules) {
+        for (i in 0 until tableRules.size) {
+            if (tableRules[i].columnName == tableRule.columnName) {
+                tableRules[i] = tableRule
+                return
+            }
+        }
+    }
 }
 
 data class Column(

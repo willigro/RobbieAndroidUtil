@@ -31,6 +31,7 @@ fun create() = "CREATE TABLE IF NOT EXISTS tb_test (" +
         "tb_text_not_null_with_default TEXT NOT NULL DEFAULT 'One value'," +
         "tb_real REAL NULL," +
         "tb_real_not_null REAL NOT NULL," +
+        "tb_calendar_not_null TEXT NOT NULL," +
         "tb_real_not_null_default REAL NOT NULL DEFAULT 1.0," +
         "tb_date TEXT NULL);"
 
