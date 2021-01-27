@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
 import android.util.Log
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -25,10 +26,11 @@ fun Table.mock(
     times: Int,
     resetTable: Boolean = false,
     closeDb: Boolean = true,
+    dispatcher: CoroutineDispatcher = Dispatchers.IO,
     callback: (() -> Unit)? = null
 ) {
     GlobalScope.launch {
-        withContext(Dispatchers.IO) {
+        withContext(dispatcher) {
             if (resetTable) {
                 db.delete(tbName, "", null)
                 db.execSQL("DELETE FROM sqlite_sequence WHERE name='$tbName';")
