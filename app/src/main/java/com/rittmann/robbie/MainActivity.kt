@@ -58,7 +58,7 @@ class MainActivity : BaseActivity() {
             )
 
             it.tableRules.add(
-                TableRules("tb_integer_not_null").addRule(IntegerColumnRule(10, 30, true))
+                TableRules("tb_integer_not_null").addRule(IntegerColumnRule(10, 30))
             )
 
             it.tableRules.add(

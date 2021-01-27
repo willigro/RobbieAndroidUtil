@@ -169,18 +169,21 @@ fun randomReal(isNotNull: Boolean, columnRule: RealColumnRule?): Double? {
     val res =
         rule.minNumber + (rule.maxNumber ?: DEFAULT_MAX_NUMBER - rule.minNumber) * r.nextDouble()
 
-    if (rule.allowNegatives && r.nextDouble() > CHANCE_TO_BE_NEGATIVE) return res
-    return res * -1
+    if (rule.allowNegatives && Math.random() > CHANCE_TO_BE_NEGATIVE) return res * -1
+    return res
 }
 
 fun randomInteger(isNotNull: Boolean, columnRule: IntegerColumnRule?): Int? {
     if (isNotNull.not() and canBeNull()) return null
 
-    val res = (Random(System.nanoTime()).nextInt(
-        (columnRule?.maxNumber ?: DEFAULT_MAX_NUMBER - (columnRule?.minNumber ?: 0) + 1).toInt()
-    ) + (columnRule?.minNumber ?: 0))
-    if (columnRule?.allowNegatives == true && Math.random() > CHANCE_TO_BE_NEGATIVE) return res
-    return res * -1
+    val rule: IntegerColumnRule = columnRule ?: IntegerColumnRule(0, DEFAULT_MAX_NUMBER, false)
+
+    val res = Random(System.nanoTime()).nextInt(
+        rule.maxNumber ?: DEFAULT_MAX_NUMBER - rule.minNumber + 1
+    ) + rule.minNumber
+
+    if (rule.allowNegatives && Math.random() > CHANCE_TO_BE_NEGATIVE) return res * -1
+    return res
 }
 
 fun randomString(isNotNull: Boolean, columnRule: TextColumnRule?): String? {
