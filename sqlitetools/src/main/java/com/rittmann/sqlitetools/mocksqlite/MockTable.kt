@@ -80,6 +80,57 @@ fun Table.mock(
     }
 }
 
+fun Table.mockMain(
+    db: SQLiteDatabase,
+    times: Int,
+    resetTable: Boolean = false,
+    closeDb: Boolean = true
+) {
+    if (resetTable) {
+        db.delete(tbName, "", null)
+        db.execSQL("DELETE FROM sqlite_sequence WHERE name='$tbName';")
+    }
+
+    for (i in 1..times) {
+        val contentValues = ContentValues()
+
+        columns.forEach {
+            when (it.type) {
+                TableColumnType.TEXT -> {
+                    val ruleType = getRuleType(tableRules, it.name)
+
+                    val random = if (ruleType is TextColumnRule) {
+                        randomString(it.isNotNull, getRule(tableRules, it))
+                    } else {
+                        randomStringCalendar(it.isNotNull, getRule(tableRules, it))
+                    }
+
+                    contentValues.put(it.name, random)
+                }
+
+                TableColumnType.INTEGER -> {
+                    contentValues.put(
+                        it.name, randomInteger(it.isNotNull, getRule(tableRules, it))
+                    )
+                }
+
+                TableColumnType.REAL -> {
+                    contentValues.put(
+                        it.name, randomReal(it.isNotNull, getRule(tableRules, it))
+                    )
+                }
+            }
+        }
+
+        contentValues.also {
+            db.insert(tbName, null, it)
+        }
+    }
+
+    if (closeDb)
+        db.close()
+}
+
 fun getRuleType(tableRules: ArrayList<TableRules>, name: String): ColumnRule {
     for (tRule in tableRules) {
         if (tRule.columnName == name) {
