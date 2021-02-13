@@ -9,6 +9,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONArray
+import org.json.JSONObject
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,7 +30,10 @@ fun Table.mock(
     closeDb: Boolean = true,
     dispatcher: CoroutineDispatcher = Dispatchers.IO,
     callback: (() -> Unit)? = null
-) {
+): JSONArray {
+
+    val result = JSONArray()
+
     GlobalScope.launch {
         withContext(dispatcher) {
             if (resetTable) {
@@ -40,6 +45,8 @@ fun Table.mock(
                 val contentValues = ContentValues()
 
                 columns.forEach {
+                    val jo = JSONObject()
+
                     when (it.type) {
                         TableColumnType.TEXT -> {
                             val ruleType = getRuleType(tableRules, it.name)
@@ -65,6 +72,8 @@ fun Table.mock(
                             )
                         }
                     }
+
+                    result.put(jo)
                 }
 
                 contentValues.also {
@@ -78,6 +87,8 @@ fun Table.mock(
             }
         }
     }
+
+    return result
 }
 
 fun Table.mockMain(
@@ -85,7 +96,10 @@ fun Table.mockMain(
     times: Int,
     resetTable: Boolean = false,
     closeDb: Boolean = true
-) {
+): JSONArray {
+
+    val result = JSONArray()
+
     if (resetTable) {
         db.delete(tbName, "", null)
         db.execSQL("DELETE FROM sqlite_sequence WHERE name='$tbName';")
@@ -95,6 +109,8 @@ fun Table.mockMain(
         val contentValues = ContentValues()
 
         columns.forEach {
+            val jo = JSONObject()
+
             when (it.type) {
                 TableColumnType.TEXT -> {
                     val ruleType = getRuleType(tableRules, it.name)
@@ -106,20 +122,23 @@ fun Table.mockMain(
                     }
 
                     contentValues.put(it.name, random)
+                    jo.put(it.name, random)
                 }
 
                 TableColumnType.INTEGER -> {
-                    contentValues.put(
-                        it.name, randomInteger(it.isNotNull, getRule(tableRules, it))
-                    )
+                    val random = randomInteger(it.isNotNull, getRule(tableRules, it))
+                    contentValues.put(it.name, random)
+                    jo.put(it.name, random)
                 }
 
                 TableColumnType.REAL -> {
-                    contentValues.put(
-                        it.name, randomReal(it.isNotNull, getRule(tableRules, it))
-                    )
+                    val random = randomReal(it.isNotNull, getRule(tableRules, it))
+                    contentValues.put(it.name, random)
+                    jo.put(it.name, random)
                 }
             }
+
+            result.put(jo)
         }
 
         contentValues.also {
@@ -129,6 +148,8 @@ fun Table.mockMain(
 
     if (closeDb)
         db.close()
+
+    return result
 }
 
 fun getRuleType(tableRules: ArrayList<TableRules>, name: String): ColumnRule {
