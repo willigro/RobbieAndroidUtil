@@ -107,9 +107,9 @@ fun Table.mockMain(
 
     for (i in 1..times) {
         val contentValues = ContentValues()
+        val jo = JSONObject()
 
         columns.forEach {
-            val jo = JSONObject()
 
             when (it.type) {
                 TableColumnType.TEXT -> {
@@ -137,10 +137,9 @@ fun Table.mockMain(
                     jo.put(it.name, random)
                 }
             }
-
-            result.put(jo)
         }
 
+        result.put(jo)
         contentValues.also {
             db.insert(tbName, null, it)
         }
