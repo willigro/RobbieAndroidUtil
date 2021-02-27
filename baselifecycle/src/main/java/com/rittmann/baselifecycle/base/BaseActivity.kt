@@ -1,7 +1,5 @@
 package com.rittmann.baselifecycle.base
 
-import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.rittmann.baselifecycle.keyboard.KeyboardEventListenerInterface
@@ -12,19 +10,15 @@ import com.rittmann.widgets.progress.ProgressVisibleControl
 
 open class BaseActivity : AppCompatActivity() {
 
-    private lateinit var progressVisibleControl: ProgressVisibleControl
     open var resIdViewReference: Int = 0
-
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        progressVisibleControl = ProgressVisibleControl.init(this)
-    }
 
     open fun showProgress(
         closeKeyboard: Boolean = false,
         cancelable: Boolean = false,
         callback: (() -> Unit)? = null
     ) {
+        ProgressVisibleControl.init(this, resIdViewReference)
+
         if (closeKeyboard && isKeyboardOpen(findViewById(resIdViewReference))) {
             hideKeyboardAndExecute {
                 ProgressVisibleControl.show(cancelable, callback)

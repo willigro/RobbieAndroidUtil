@@ -17,7 +17,7 @@ class ProgressActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_progress)
 
-        ProgressVisibleControl.init(this)
+        ProgressVisibleControl.init(this, R.id.base_content)
 
         normal_progress.setOnClickListener {
             ProgressVisibleControl.show(true) {
@@ -26,7 +26,7 @@ class ProgressActivity : AppCompatActivity() {
         }
 
         custom_view_progress.setOnClickListener {
-            ProgressVisibleControl.init(this)
+            ProgressVisibleControl.init(this, R.id.base_content)
                 .customLayout(R.layout.custom_progress) {
                     it.cancel.setOnClickListener {
                         ProgressVisibleControl.hide()
@@ -46,7 +46,7 @@ class ProgressActivity : AppCompatActivity() {
         }
 
         reset_view_progress.setOnClickListener {
-            ProgressVisibleControl.init(this).customLayout(null).show(true) {
+            ProgressVisibleControl.init(this, R.id.base_content).customLayout(null).show(true) {
                 Toast.makeText(this, "Normal progress dismiss callback", Toast.LENGTH_SHORT).show()
             }
         }

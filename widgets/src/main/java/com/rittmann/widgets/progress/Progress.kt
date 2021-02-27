@@ -2,18 +2,20 @@ package com.rittmann.widgets.progress
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
+import android.graphics.Rect
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.view.Window
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import com.rittmann.widgets.R
 
+
 /**
  * Able dismiss with onBackPressed
  * */
-class Progress(private val activity: AppCompatActivity) {
+class Progress(private val activity: AppCompatActivity, private val viewResId: Int) {
 
     private var dialog: AlertDialog? = null
     private var cancelable: Boolean = false
@@ -23,16 +25,19 @@ class Progress(private val activity: AppCompatActivity) {
         if (dialog == null || dialog!!.isShowing.not()) {
             this.cancelable = cancelable
 
-            AlertDialog.Builder(activity).apply {
-                setView(getView())
+            AlertDialog.Builder(activity, R.style.CustomAlertDialog).apply {
                 setCancelable(cancelable)
+                val displayRectangle = Rect()
+                val window: Window = activity.window
+                window.decorView.getWindowVisibleDisplayFrame(displayRectangle)
+                val viewGroup: ViewGroup = activity.findViewById(viewResId)
+                val dialogView: View = LayoutInflater.from(activity)
+                    .inflate(customView ?: R.layout.progress_layout, viewGroup, false)
+                dialogView.minimumWidth = ((displayRectangle.width() * 1f).toInt())
+                dialogView.minimumHeight = ((displayRectangle.height() * 1f).toInt())
+                setView(dialogView)
                 dialog = create()
-                dialog?.also {
-                    it.requestWindowFeature(Window.FEATURE_NO_TITLE)
-                    it.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-                    dialog?.show()
-                }
-
+                dialog?.show()
                 config(dismissCallback)
             }
         }

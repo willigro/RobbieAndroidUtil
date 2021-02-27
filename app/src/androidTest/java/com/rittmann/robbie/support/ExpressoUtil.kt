@@ -1,30 +1,28 @@
 package com.rittmann.robbie.support
 
 import android.app.Activity
-import android.os.IBinder
 import android.view.View
-import android.view.WindowManager
+import android.widget.TextView
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.Root
 import androidx.test.espresso.UiController
 import androidx.test.espresso.ViewAction
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.action.ViewActions.scrollTo
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.RootMatchers
+import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.not
-import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers
 import org.hamcrest.Matchers.containsString
-import org.hamcrest.TypeSafeMatcher
 
 
 object ExpressoUtil {
@@ -52,6 +50,31 @@ object ExpressoUtil {
         }
     }
 
+    fun putValueTextView(id: Int, value: String) {
+        onView(withId(id)).perform(setTextInTextView(value))
+    }
+
+    fun setTextInTextView(value: String?): ViewAction? {
+        return object : ViewAction {
+            override fun getConstraints(): Matcher<View> {
+                return allOf(
+                    isDisplayed(), isAssignableFrom(
+                        TextView::class.java
+                    )
+                )
+            }
+
+            override fun perform(uiController: UiController, view: View) {
+                (view as TextView).text = value
+            }
+
+            override fun getDescription(): String {
+                return "replace text"
+            }
+        }
+    }
+
+
     fun viewIsDisplayed(id: Int, withScroll: Boolean = false) {
         onView(withId(id)).apply {
             if (withScroll)
@@ -64,6 +87,10 @@ object ExpressoUtil {
             if (withScroll)
                 perform(scrollTo())
         }.check(matches(not(isDisplayed())))
+    }
+
+    fun viewDoesNotExists(value: String) {
+        onView(withText(value)).check(doesNotExist())
     }
 
     fun waitFor(delay: Long): ViewAction {
