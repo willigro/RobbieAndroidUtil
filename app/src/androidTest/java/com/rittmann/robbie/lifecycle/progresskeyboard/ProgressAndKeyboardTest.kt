@@ -23,8 +23,10 @@ class ProgressAndKeyboardTest : ActivityTest() {
         }
         val value = "Showing progress"
 
+        Thread.sleep(delay)
         putValue(R.id.labelProgress, value)
 
+        Thread.sleep(delay)
         checkValue(R.id.labelProgress, value)
     }
 
