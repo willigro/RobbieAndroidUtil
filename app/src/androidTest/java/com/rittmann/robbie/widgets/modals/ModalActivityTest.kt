@@ -1,8 +1,9 @@
 package com.rittmann.robbie.widgets.modals
 
 import com.rittmann.robbie.ModalActivity
+import com.rittmann.robbie.R
 import com.rittmann.robbie.support.ActivityTest
-import com.rittmann.robbie.support.ExpressoUtil.checkValue
+import com.rittmann.robbie.support.EspressoUtil.checkValue
 import com.rittmann.widgets.dialog.modal
 import org.junit.Test
 
@@ -25,6 +26,9 @@ class ModalActivityTest : ActivityTest() {
             )
         }
 
-        checkValue("")
+        checkValue(R.id.dialogTitleTextView, title)
+        checkValue(R.id.dialogSubtitleTextView, message)
+        checkValue(R.id.btnCancel, cancelText)
+        checkValue(R.id.btnConclude, concludeText)
     }
 }

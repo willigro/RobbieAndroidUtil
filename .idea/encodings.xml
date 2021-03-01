@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/app/src/androidTest/java/com/rittmann/robbie/support/ActivityTest.kt" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/androidTest/java/com/rittmann/robbie/support/EspressoUtil.kt" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/androidTest/java/com/rittmann/robbie/support/MockUtilTest.kt" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/androidTest/java/com/rittmann/robbie/support/ModelTest.kt" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/androidTest/java/com/rittmann/robbie/support/ViewModelTest.kt" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/app/src/androidTest/java/com/rittmann/robbie/support/WithIdMatcherConcat.java" charset="ISO-8859-1" />
+  </component>
+</project>

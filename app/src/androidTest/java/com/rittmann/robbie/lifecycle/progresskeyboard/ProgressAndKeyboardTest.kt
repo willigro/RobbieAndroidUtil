@@ -4,10 +4,10 @@ import androidx.test.runner.AndroidJUnit4
 import com.rittmann.robbie.R
 import com.rittmann.robbie.base.BaseActivityImpl
 import com.rittmann.robbie.support.ActivityTest
-import com.rittmann.robbie.support.ExpressoUtil.checkValue
-import com.rittmann.robbie.support.ExpressoUtil.performClick
-import com.rittmann.robbie.support.ExpressoUtil.putValueTextView
-import com.rittmann.robbie.support.ExpressoUtil.viewDoesNotExists
+import com.rittmann.robbie.support.EspressoUtil.checkValue
+import com.rittmann.robbie.support.EspressoUtil.performClick
+import com.rittmann.robbie.support.EspressoUtil.putValueTextView
+import com.rittmann.robbie.support.EspressoUtil.viewDoesNotExists
 import org.junit.Test
 import org.junit.runner.RunWith
 
