@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DialogsActivity"></activity>
+        <activity android:name=".ModalActivity"></activity>
+        <activity android:name=".DialogsActivity" />
         <activity android:name=".ProgressActivity" />
         <activity android:name=".base.BaseActivityImpl" />
         <activity android:name=".MainActivity">

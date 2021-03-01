@@ -1,9 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ModalActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/show_modal"
+        style="@style/Button"
+        android:text="Show Modal without internal object" />
+
+    <Button
+        android:id="@+id/show_modal_with_internal"
+        style="@style/Button"
+        android:text="Show Modal with internal object" />
+
+    <Button
+        android:id="@+id/show_modal_configure_default_layout_with_default_ids"
+        style="@style/Button"
+        android:text="Show Modal configure the default layout with default ids" />
+
+    <Button
+        android:id="@+id/show_modal_configure_default_layout_with_new_ids_and_turn_in_the_default_modal"
+        style="@style/Button"
+        android:text="Show Modal configure the default layout with new ids and turn it in the default modal" />
+
+    <Button
+        android:id="@+id/show_modal_change_the_ids_but_just_for_this_instance"
+        style="@style/Button"
+        android:text="Show Modal change the ids but just for this instance" />
+
+    <Button
+        android:id="@+id/show_modal_without_configure_the_layout_must_show_the_new_default"
+        style="@style/Button"
+        android:text="Show Modal without change the configuration, it must show the new default" />
+
+    <Button
+        android:id="@+id/show_modal_reset_default"
+        style="@style/Button"
+        android:text="Show Modal reset default" />
+</LinearLayout>
