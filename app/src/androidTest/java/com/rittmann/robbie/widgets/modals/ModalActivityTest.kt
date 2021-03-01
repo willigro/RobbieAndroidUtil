@@ -168,4 +168,61 @@ class ModalActivityTest : ActivityTest() {
         checkValue(R.id.new_btn_conclude, concludeText)
         backgroundColor(R.id.new_modal_layout, android.R.color.holo_orange_dark)
     }
+
+    @Test
+    fun showModal_SetTheDefaultLayoutAndResetIt_UsingInternalModal() {
+        val title = "modal title"
+        val message = "modal Message"
+        val cancelText = "Text cancel"
+        val concludeText = "Text conclude"
+
+        var modalOne: ModalUtil? = null
+
+        val activity = getActivity<ModalActivity>().onActivity {
+            val internalChangeTheDefaultLayout = ModalInternal(
+                context = it,
+                title = title,
+                message = message,
+                cancelText = cancelText,
+                concludeText = concludeText,
+                show = true,
+                resIdLayout = R.layout.modal_layout_with_new_ids,
+                resIdTitle = R.id.new_modal_title,
+                resIdMessage = R.id.new_modal_message,
+                resIdBtnCancel = R.id.new_btn_cancel,
+                resIdBtnConclude = R.id.new_btn_conclude,
+                useResJustInThisModal = false // configure the resId as default
+            )
+
+            modalOne = it.modal(internalChangeTheDefaultLayout)
+        }
+
+        checkValue(R.id.new_modal_title, title)
+        checkValue(R.id.new_modal_message, message)
+        checkValue(R.id.new_btn_cancel, cancelText)
+        checkValue(R.id.new_btn_conclude, concludeText)
+        backgroundColor(R.id.new_modal_layout, android.R.color.holo_orange_dark)
+
+        modalOne?.dismiss()
+
+        activity.onActivity {
+            val internalDefaultLayout = ModalInternal(
+                context = it,
+                title = title,
+                message = message,
+                cancelText = cancelText,
+                concludeText = concludeText,
+                show = true,
+                resetLayout = true
+            )
+
+            it.modal(internalDefaultLayout)
+        }
+
+        checkValue(R.id.dialogTitleTextView, title)
+        checkValue(R.id.dialogSubtitleTextView, message)
+        checkValue(R.id.btnCancel, cancelText)
+        checkValue(R.id.btnConclude, concludeText)
+        backgroundColor(R.id.dialogLayout, android.R.color.white)
+    }
 }
