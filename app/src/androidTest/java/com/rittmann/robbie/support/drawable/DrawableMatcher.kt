@@ -16,14 +16,14 @@ import androidx.core.graphics.drawable.DrawableCompat
 import org.hamcrest.Description
 import org.hamcrest.TypeSafeMatcher
 
-open class DrawableMatcher internal constructor(@field:DrawableRes @param:DrawableRes private val mDrawableId: Int, @Nullable expectedColorFilter: ColorFilter, extractor: Extractor? = null) : TypeSafeMatcher<View?>() {
+open class DrawableMatcher internal constructor(@field:DrawableRes @param:DrawableRes private val mDrawableId: Int, @Nullable expectedColorFilter: ColorFilter?, extractor: Extractor? = null) : TypeSafeMatcher<View?>() {
     interface Extractor {
         @NonNull
         fun extract(@NonNull v: View?): Drawable?
     }
 
     private var mReason: String? = null
-    private val mExpectedColorFilter: ColorFilter = expectedColorFilter
+    private val mExpectedColorFilter: ColorFilter? = expectedColorFilter
     private val mExtractor: Extractor? = extractor
     override fun matchesSafely(target: View?): Boolean {
         if (target == null || target !is ImageView && mExtractor == null) {

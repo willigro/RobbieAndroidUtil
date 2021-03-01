@@ -226,25 +226,47 @@ object EspressoUtil {
     }
 
     fun hasBackground(id: Int, idConcat: Int, resId: Int) {
-        onView(CoreMatchers.allOf(withIdConcatened(id, idConcat), ViewMatchers.hasBackground(resId), ViewMatchers.isDisplayed()))
+        onView(
+            CoreMatchers.allOf(
+                withIdConcatened(id, idConcat),
+                ViewMatchers.hasBackground(resId),
+                ViewMatchers.isDisplayed()
+            )
+        )
     }
 
     fun hasBackground(id: Int, resId: Int) {
-        onView(CoreMatchers.allOf(withId(id), ViewMatchers.hasBackground(resId), ViewMatchers.isDisplayed()))
+        onView(
+            CoreMatchers.allOf(
+                withId(id),
+                ViewMatchers.hasBackground(resId),
+                ViewMatchers.isDisplayed()
+            )
+        )
     }
 
     fun hasBackgroundByTag(tag: String, resId: Int) {
-        onView(CoreMatchers.allOf(ViewMatchers.withTagValue(Matchers.`is`(tag as Any)), ViewMatchers.hasBackground(resId), ViewMatchers.isDisplayed()))
+        onView(
+            CoreMatchers.allOf(
+                ViewMatchers.withTagValue(Matchers.`is`(tag as Any)),
+                ViewMatchers.hasBackground(resId),
+                ViewMatchers.isDisplayed()
+            )
+        )
     }
 
     fun childrenOnViewByTag(tag: String, count: Int, withScroll: Boolean = false) {
         onView(ViewMatchers.withTagValue(Matchers.`is`(tag as Any))).apply {
             if (withScroll)
                 perform(scrollTo())
-        }.check(matches(CoreMatchers.allOf(
-                ViewMatchers.isDisplayed(),
-                hasChildren(Matchers.`is`(count))
-        )))
+        }.check(
+            matches(
+                CoreMatchers.allOf(
+                    ViewMatchers.isDisplayed(),
+                    hasChildren(Matchers.`is`(count))
+                )
+            )
+        )
     }
 
     fun scrollTo(id: Int) {
@@ -292,20 +314,30 @@ object EspressoUtil {
     }
 
     fun checkInputTypeIsNot(id: Int, inputType: Int) {
-        onView(withId(id)).check(matches(CoreMatchers.not(CoreMatchers.allOf(ViewMatchers.withInputType(inputType)))))
+        onView(withId(id)).check(
+            matches(
+                CoreMatchers.not(
+                    CoreMatchers.allOf(
+                        ViewMatchers.withInputType(
+                            inputType
+                        )
+                    )
+                )
+            )
+        )
     }
 
     fun checkToast(value: String) {
         onView(withText(value)).inRoot(
-                RootMatchers.withDecorView(
-                        not(
-                                getCurrentActivity()!!.window.decorView
-                        )
+            RootMatchers.withDecorView(
+                not(
+                    getCurrentActivity()!!.window.decorView
                 )
+            )
         ).check(
-                matches(
-                        ViewMatchers.isDisplayed()
-                )
+            matches(
+                ViewMatchers.isDisplayed()
+            )
         )
     }
 
@@ -314,20 +346,33 @@ object EspressoUtil {
 //    }
 
     fun withColor(id: Int, resId: Int, color: ColorFilter) {
-        onView(withId(id)).check(matches(DrawableMatcher(resId, color, object : DrawableMatcher.Extractor {
-            override fun extract(v: View?): Drawable? {
-                return v?.background
-            }
-        })))
+        onView(withId(id)).check(
+            matches(
+                DrawableMatcher(
+                    resId,
+                    color,
+                    object : DrawableMatcher.Extractor {
+                        override fun extract(v: View?): Drawable? {
+                            return v?.background
+                        }
+                    })
+            )
+        )
     }
 
-    fun buttonWithColor(id: Int, resId: Int, color: ColorFilter) {
-        onView(withId(id)).check(matches(DrawableMatcher(resId, color, object : DrawableMatcher.Extractor {
-            override fun extract(v: View?): Drawable? {
-                val targetImageView: Button = v as Button
-                return targetImageView.background
-            }
-        })))
+    fun backgroundColor(id: Int, resId: Int, color: ColorFilter? = null) {
+        onView(withId(id)).check(
+            matches(
+                DrawableMatcher(
+                    resId,
+                    color,
+                    object : DrawableMatcher.Extractor {
+                        override fun extract(v: View?): Drawable? {
+                            return v?.background
+                        }
+                    })
+            )
+        )
     }
 
     class ExecuteOn(private val callTime: Int) {
@@ -346,7 +391,7 @@ object EspressoUtil {
         val activity = arrayOfNulls<Activity>(1)
         onView(ViewMatchers.isRoot()).check { _, _ ->
             val activities =
-                    ActivityLifecycleMonitorRegistry.getInstance().getActivitiesInStage(Stage.RESUMED)
+                ActivityLifecycleMonitorRegistry.getInstance().getActivitiesInStage(Stage.RESUMED)
             activity[0] = Iterables.getOnlyElement(activities)
         }
         return activity[0]
@@ -356,7 +401,7 @@ object EspressoUtil {
         onView(ViewMatchers.isRoot()).perform(ViewActions.pressBack())
     }
 
-    fun waitToast(){
+    fun waitToast() {
         Thread.sleep(3_000)
     }
 }
