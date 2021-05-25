@@ -15,16 +15,16 @@ open class BaseActivity : AppCompatActivity() {
     open fun showProgress(
         closeKeyboard: Boolean = false,
         cancelable: Boolean = false,
-        callback: (() -> Unit)? = null
+        dismissCallback: (() -> Unit)? = null
     ) {
         ProgressVisibleControl.init(this, resIdViewReference)
 
         if (closeKeyboard && isKeyboardOpen(findViewById(resIdViewReference))) {
             hideKeyboardAndExecute {
-                ProgressVisibleControl.show(cancelable, callback)
+                ProgressVisibleControl.show(cancelable, dismissCallback)
             }
         } else {
-            ProgressVisibleControl.show(cancelable, callback)
+            ProgressVisibleControl.show(cancelable, dismissCallback)
         }
     }
 
