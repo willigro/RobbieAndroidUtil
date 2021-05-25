@@ -40,6 +40,7 @@ class Progress(private val activity: AppCompatActivity, private val viewResId: I
                     setView(dialogView)
                     dialog = create()
                     dialog?.show()
+                    customViewAccess?.invoke(dialogView)
                     config(dismissCallback)
                 }
             }
