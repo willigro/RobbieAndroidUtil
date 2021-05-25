@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dialogLayout"
+    android:id="@+id/new_modal_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:gravity="center"
+    android:background="@android:color/holo_orange_dark"
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imageDialog"
+        android:id="@+id/new_modal_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="@null"
@@ -17,14 +17,14 @@
         tools:visibility="visible" />
 
     <TextView
-        android:id="@+id/dialogTitleTextView"
+        android:id="@+id/new_modal_title"
         style="@style/TextViewDialog"
         android:visibility="gone"
         tools:text="Title"
         tools:visibility="visible" />
 
     <com.rittmann.widgets.dialog.WebViewResizeCustom
-        android:id="@+id/dialogWebView"
+        android:id="@+id/new_modal_web_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -34,7 +34,7 @@
         tools:visibility="visible" />
 
     <com.rittmann.widgets.dialog.ScrollViewResizeCustom
-        android:id="@+id/scrollContentDialog"
+        android:id="@+id/new_modal_scroll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -42,10 +42,10 @@
         tools:visibility="visible">
 
         <TextView
-            android:id="@+id/dialogSubtitleTextView"
+            android:id="@+id/new_modal_message"
             style="@style/TextViewDialog"
             tools:text="Subtitle" />
     </com.rittmann.widgets.dialog.ScrollViewResizeCustom>
 
-    <include layout="@layout/content_buttons_conclude_cancel" />
+    <include layout="@layout/content_buttons_conclude_cancel_new_ids" />
 </LinearLayout>
