@@ -1,9 +1,11 @@
 package com.rittmann.robbie
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.rittmann.androidtools.log.log
 import com.rittmann.widgets.dialog.ModalInternal
 import com.rittmann.widgets.dialog.modal
+import kotlinx.android.synthetic.main.activity_modal.btnShowSimpleModal
 import kotlinx.android.synthetic.main.activity_modal.show_modal
 import kotlinx.android.synthetic.main.activity_modal.show_modal_change_the_ids_but_just_for_this_instance
 import kotlinx.android.synthetic.main.activity_modal.show_modal_configure_default_layout_with_default_ids
@@ -43,6 +45,20 @@ class ModalActivity : AppCompatActivity() {
 
         show_modal_reset_default.setOnClickListener {
             showModalResetDefault()
+        }
+
+        btnShowSimpleModal.setOnClickListener {
+            modal(
+                message = "Testing",
+                onClickCancel = {
+                    "logging cancel".log()
+                },
+                show = true,
+                cancelable = true
+            ).apply {
+                dismissWhenCancelIsClicked = false
+                dismissWhenConcludeIsClicked = false
+            }
         }
     }
 

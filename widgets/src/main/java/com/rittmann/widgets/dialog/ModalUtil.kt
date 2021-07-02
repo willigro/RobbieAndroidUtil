@@ -28,7 +28,9 @@ fun Fragment.modal(
     show: Boolean = false,
     cancelText: String? = null,
     concludeText: String? = null,
-    okText: String? = null
+    okText: String? = null,
+    onClickConclude: (() -> Unit)? = null,
+    onClickCancel: (() -> Unit)? = null
 ): ModalUtil {
     return ModalUtil().init(
         context = requireContext(),
@@ -40,7 +42,9 @@ fun Fragment.modal(
         show = show,
         cancelText = cancelText,
         concludeText = concludeText,
-        okText = okText
+        okText = okText,
+        onClickConclude = onClickConclude,
+        onClickCancel = onClickCancel
     )
 }
 
@@ -57,7 +61,9 @@ fun AppCompatActivity.modal(
     show: Boolean = false,
     cancelText: String? = null,
     concludeText: String? = null,
-    okText: String? = null
+    okText: String? = null,
+    onClickConclude: (() -> Unit)? = null,
+    onClickCancel: (() -> Unit)? = null
 ): ModalUtil {
     return ModalUtil().init(
         context = this,
@@ -69,7 +75,9 @@ fun AppCompatActivity.modal(
         show = show,
         cancelText = cancelText,
         concludeText = concludeText,
-        okText = okText
+        okText = okText,
+        onClickConclude = onClickConclude,
+        onClickCancel = onClickCancel
     )
 }
 
@@ -99,7 +107,9 @@ class ModalInternal(
     var resIdScroll: Int? = null,
     var resIdWebView: Int? = null,
     var useResJustInThisModal: Boolean = false,
-    val resetLayout: Boolean = false
+    val resetLayout: Boolean = false,
+    val onClickConclude: (() -> Unit)? = null,
+    val onClickCancel: (() -> Unit)? = null
 ) : ModalInternalObject
 
 open class ModalUtil : DialogSimplified {
@@ -120,6 +130,8 @@ open class ModalUtil : DialogSimplified {
     var isOk: Boolean = false
     var fromHtml: Boolean = false
     var useResTemp: Boolean = false
+    var dismissWhenConcludeIsClicked: Boolean = true
+    var dismissWhenCancelIsClicked: Boolean = true
 
     companion object {
         var defaultTitle: String = ""
@@ -154,7 +166,9 @@ open class ModalUtil : DialogSimplified {
         show: Boolean = false,
         cancelText: String? = null,
         concludeText: String? = null,
-        okText: String? = null
+        okText: String? = null,
+        onClickConclude: (() -> Unit)? = null,
+        onClickCancel: (() -> Unit)? = null
     ): ModalUtil {
         this.dialogView = LayoutInflater.from(context).inflate(getResLayout(), null, true)
         this.context = context
@@ -168,7 +182,7 @@ open class ModalUtil : DialogSimplified {
         this.isOk = ok
 
         if (show) {
-            handleShow()
+            handleShow(onClickConclude, onClickCancel)
         }
         return this@ModalUtil
     }
@@ -192,7 +206,7 @@ open class ModalUtil : DialogSimplified {
         this.isOk = modalInternal.ok
 
         if (modalInternal.show) {
-            handleShow()
+            handleShow(modalInternal.onClickConclude, modalInternal.onClickCancel)
         }
         return this@ModalUtil
     }
@@ -245,13 +259,20 @@ open class ModalUtil : DialogSimplified {
 
     private fun retrieveOkText(): String = okText ?: context.getString(R.string.ok_)
 
-    private fun showButton(id: Int, s: String, callback: (() -> Unit)? = null) {
+    private fun showButton(
+        id: Int,
+        s: String,
+        callback: (() -> Unit)? = null,
+        isConfirm: Boolean
+    ) {
         dialogView.findViewById<AppCompatButton>(id)?.apply {
             text = s
             visibility = View.VISIBLE
             setOnClickListener {
                 callback?.invoke()
-                dialog?.dismiss()
+                if (isConfirm && dismissWhenConcludeIsClicked
+                    || isConfirm.not() && dismissWhenCancelIsClicked)
+                    dialog?.dismiss()
             }
         }
     }
@@ -323,10 +344,25 @@ open class ModalUtil : DialogSimplified {
         onClickCancel: (() -> Unit)?
     ) {
         if (this.isOk) {
-            showButton(getResIdBtnConclude(), retrieveOkText(), onClickConclude)
+            showButton(
+                getResIdBtnConclude(),
+                retrieveOkText(),
+                onClickConclude,
+                true
+            )
         } else {
-            showButton(getResIdBtnConclude(), retrieveConcludeText(), onClickConclude)
-            showButton(getResIdBtnCancel(), retrieveCancelText(), onClickCancel)
+            showButton(
+                getResIdBtnConclude(),
+                retrieveConcludeText(),
+                onClickConclude,
+                true
+            )
+            showButton(
+                getResIdBtnCancel(),
+                retrieveCancelText(),
+                onClickCancel,
+                false
+            )
         }
     }
 

@@ -40,4 +40,9 @@
         android:id="@+id/show_modal_reset_default"
         style="@style/Button"
         android:text="Show Modal reset default" />
+
+    <Button
+        android:id="@+id/btnShowSimpleModal"
+        style="@style/Button"
+        android:text="Simple Modal" />
 </LinearLayout>
