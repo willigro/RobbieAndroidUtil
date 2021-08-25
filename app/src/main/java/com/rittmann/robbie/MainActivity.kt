@@ -22,6 +22,7 @@ import kotlinx.android.synthetic.main.activity_main.execute_sql
 import kotlinx.android.synthetic.main.activity_main.show_dialogs
 import kotlinx.android.synthetic.main.activity_main.show_modals
 import kotlinx.android.synthetic.main.activity_main.show_progress
+import kotlinx.android.synthetic.main.activity_main.show_typography
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -32,6 +33,10 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        show_typography.setOnClickListener {
+            start<TypographyActivity>()
+        }
 
         show_progress.setOnClickListener {
             start<ProgressActivity>()

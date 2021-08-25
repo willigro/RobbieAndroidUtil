@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TypographyActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text without style" />
+
+        <TextView
+            style="@style/RobbieText"
+            android:layout_marginTop="40dp"
+            android:text="Text base style" />
+
+        <TextView
+            style="@style/Robbie.H1"
+            android:text="Text Robbie H1" />
+
+        <TextView
+            style="@style/Robbie.H2"
+            android:text="Text Robbie H2" />
+
+        <TextView
+            style="@style/Robbie.H3"
+            android:text="Text Robbie H3" />
+
+        <TextView
+            style="@style/Robbie.H4"
+            android:text="Text Robbie H4" />
+
+        <TextView
+            style="@style/Robbie.H5"
+            android:text="Text Robbie H5" />
+
+        <TextView
+            style="@style/Robbie.H6"
+            android:text="Text Robbie H6" />
+
+        <TextView
+            style="@style/Robbie.Subtitle1"
+            android:text="Text Robbie Subtitle 1" />
+
+        <TextView
+            style="@style/Robbie.Subtitle2"
+            android:text="Text Robbie Subtitle 2" />
+
+        <TextView
+            style="@style/Robbie.Subtitle3"
+            android:text="Text Robbie Subtitle 3" />
+
+        <TextView
+            style="@style/Robbie.Paragraph1"
+            android:text="Text Robbie Paragraph 1" />
+
+        <TextView
+            style="@style/Robbie.Paragraph2"
+            android:text="Text Robbie Paragraph 2" />
+
+        <TextView
+            style="@style/Robbie.Paragraph3"
+            android:text="Text Robbie Paragraph 3" />
+
+        <!-- Bold -->
+        <TextView
+            style="@style/RobbieText.Bold"
+            android:layout_marginTop="40dp"
+            android:text="Text base style bold" />
+
+        <TextView
+            style="@style/Robbie.H1.Bold"
+            android:text="Text Robbie H1 bold" />
+
+        <TextView
+            style="@style/Robbie.H2.Bold"
+            android:text="Text Robbie H2 bold" />
+
+        <TextView
+            style="@style/Robbie.H3.Bold"
+            android:text="Text Robbie H3 bold" />
+
+        <TextView
+            style="@style/Robbie.H4.Bold"
+            android:text="Text Robbie H4 bold" />
+
+        <TextView
+            style="@style/Robbie.H5.Bold"
+            android:text="Text Robbie H5 bold" />
+
+        <TextView
+            style="@style/Robbie.H6.Bold"
+            android:text="Text Robbie H6 bold" />
+
+        <TextView
+            style="@style/Robbie.Subtitle1.Bold"
+            android:text="Text Robbie Subtitle 1 bold" />
+
+        <TextView
+            style="@style/Robbie.Subtitle2.Bold"
+            android:text="Text Robbie Subtitle 2 bold" />
+
+        <TextView
+            style="@style/Robbie.Subtitle3.Bold"
+            android:text="Text Robbie Subtitle 3 bold" />
+
+        <TextView
+            style="@style/Robbie.Paragraph1.Bold"
+            android:text="Text Robbie Paragraph 1 bold" />
+
+        <TextView
+            style="@style/Robbie.Paragraph2.Bold"
+            android:text="Text Robbie Paragraph 2 bold" />
+
+        <TextView
+            style="@style/Robbie.Paragraph3.Bold"
+            android:text="Text Robbie Paragraph 3 bold" />
+
+        <!-- Brand -->
+        <TextView
+            style="@style/RobbieText.Brand"
+            android:layout_marginTop="40dp"
+            android:text="Text base style Brand" />
+
+        <TextView
+            style="@style/Robbie.H1.Brand"
+            android:text="Text Robbie H1 bold" />
+
+        <TextView
+            style="@style/Robbie.H2.Brand"
+            android:text="Text Robbie H2 Brand" />
+
+        <TextView
+            style="@style/Robbie.H3.Brand"
+            android:text="Text Robbie H3 Brand" />
+
+        <TextView
+            style="@style/Robbie.H4.Brand"
+            android:text="Text Robbie H4 Brand" />
+
+        <TextView
+            style="@style/Robbie.H5.Brand"
+            android:text="Text Robbie H5 Brand" />
+
+        <TextView
+            style="@style/Robbie.H6.Brand"
+            android:text="Text Robbie H6 Brand" />
+
+        <TextView
+            style="@style/Robbie.Subtitle1.Brand"
+            android:text="Text Robbie Subtitle 1 Brand" />
+
+        <TextView
+            style="@style/Robbie.Subtitle2.Brand"
+            android:text="Text Robbie Subtitle 2 Brand" />
+
+        <TextView
+            style="@style/Robbie.Subtitle3.Brand"
+            android:text="Text Robbie Subtitle 3 Brand" />
+
+        <TextView
+            style="@style/Robbie.Paragraph1.Brand"
+            android:text="Text Robbie Paragraph 1 Brand" />
+
+        <TextView
+            style="@style/Robbie.Paragraph2.Brand"
+            android:text="Text Robbie Paragraph 2 Brand" />
+
+        <TextView
+            style="@style/Robbie.Paragraph3.Brand"
+            android:text="Text Robbie Paragraph 3 Brand" />
+
+        <!-- Brand Bold -->
+        <TextView
+            style="@style/RobbieText.Brand.Bold"
+            android:layout_marginTop="40dp"
+            android:text="Text base style Brand Bold" />
+
+        <TextView
+            style="@style/Robbie.H1.Brand.Bold"
+            android:text="Text Robbie H1 bold.Bold" />
+
+        <TextView
+            style="@style/Robbie.H2.Brand.Bold"
+            android:text="Text Robbie H2 Brand.Bold" />
+
+        <TextView
+            style="@style/Robbie.H3.Brand.Bold"
+            android:text="Text Robbie H3 Brand.Bold" />
+
+        <TextView
+            style="@style/Robbie.H4.Brand.Bold"
+            android:text="Text Robbie H4 Brand.Bold" />
+
+        <TextView
+            style="@style/Robbie.H5.Brand.Bold"
+            android:text="Text Robbie H5 Brand.Bold" />
+
+        <TextView
+            style="@style/Robbie.H6.Brand.Bold"
+            android:text="Text Robbie H6 Brand.Bold" />
+
+        <TextView
+            style="@style/Robbie.Subtitle1.Brand.Bold"
+            android:text="Text Robbie Subtitle 1 Brand.Bold" />
+
+        <TextView
+            style="@style/Robbie.Subtitle2.Brand.Bold"
+            android:text="Text Robbie Subtitle 2 Brand.Bold" />
+
+        <TextView
+            style="@style/Robbie.Subtitle3.Brand.Bold"
+            android:text="Text Robbie Subtitle 3 Brand.Bold" />
+
+        <TextView
+            style="@style/Robbie.Paragraph1.Brand.Bold"
+            android:text="Text Robbie Paragraph 1 Brand.Bold" />
+
+        <TextView
+            style="@style/Robbie.Paragraph2.Brand.Bold"
+            android:text="Text Robbie Paragraph 2 Brand.Bold" />
+
+        <TextView
+            style="@style/Robbie.Paragraph3.Brand.Bold"
+            android:text="Text Robbie Paragraph 3 Brand.Bold" />
+    </LinearLayout>
+
+</ScrollView>

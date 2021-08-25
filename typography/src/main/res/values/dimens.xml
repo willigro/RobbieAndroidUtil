@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Heading -->
+    <dimen name="robbie_text_size_h1">32sp</dimen>
+    <dimen name="robbie_text_size_h2">26sp</dimen>
+    <dimen name="robbie_text_size_h3">24sp</dimen>
+    <dimen name="robbie_text_size_h4">20sp</dimen>
+    <dimen name="robbie_text_size_h5">18sp</dimen>
+    <dimen name="robbie_text_size_h6">16sp</dimen>
+
+    <!-- Subtile -->
+    <dimen name="robbie_text_size_sb1">20sp</dimen>
+    <dimen name="robbie_text_size_sb2">16sp</dimen>
+    <dimen name="robbie_text_size_sb3">14sp</dimen>
+
+    <!-- Paragraph -->
+    <dimen name="robbie_text_size_p1">14sp</dimen>
+    <dimen name="robbie_text_size_p2">12sp</dimen>
+    <dimen name="robbie_text_size_p3">10sp</dimen>
+</resources>

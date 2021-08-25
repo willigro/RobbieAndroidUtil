@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Normal -->
+    <style name="Robbie.Paragraph1" parent="RobbieText">
+        <item name="android:textSize">@dimen/robbie_text_size_p1</item>
+    </style>
+
+    <style name="Robbie.Paragraph2" parent="RobbieText">
+        <item name="android:textSize">@dimen/robbie_text_size_p2</item>
+    </style>
+
+    <style name="Robbie.Paragraph3" parent="RobbieText">
+        <item name="android:textSize">@dimen/robbie_text_size_p3</item>
+    </style>
+
+    <!-- Bold -->
+    <style name="Robbie.Paragraph1.Bold" parent="Robbie.Paragraph1">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Robbie.Paragraph2.Bold" parent="Robbie.Paragraph2">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Robbie.Paragraph3.Bold" parent="Robbie.Paragraph3">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Brand -->
+    <style name="Robbie.Paragraph1.Brand" parent="Robbie.Paragraph1">
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="Robbie.Paragraph2.Brand" parent="Robbie.Paragraph2">
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="Robbie.Paragraph3.Brand" parent="Robbie.Paragraph3">
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+    <!-- Brand Bold -->
+    <style name="Robbie.Paragraph1.Brand.Bold" parent="Robbie.Paragraph1.Bold">
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="Robbie.Paragraph2.Brand.Bold" parent="Robbie.Paragraph2.Bold">
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+    <style name="Robbie.Paragraph3.Brand.Bold" parent="Robbie.Paragraph3.Bold">
+        <item name="android:textColor">?attr/colorAccent</item>
+    </style>
+
+</resources>
