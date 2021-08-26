@@ -2,19 +2,19 @@
 <resources>
 
     <!-- Normal -->
-    <style name="Robbie.Subtitle1" parent="RobbieText">
+    <style name="Robbie.Subtitle1" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_sb1</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColor">?robbieSubtitleTextColor</item>
     </style>
 
-    <style name="Robbie.Subtitle2" parent="RobbieText">
+    <style name="Robbie.Subtitle2" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_sb2</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColor">?robbieSubtitleTextColor</item>
     </style>
 
-    <style name="Robbie.Subtitle3" parent="RobbieText">
+    <style name="Robbie.Subtitle3" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_sb3</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColor">?robbieSubtitleTextColor</item>
     </style>
 
     <!-- Bold -->
@@ -32,27 +32,27 @@
 
     <!-- Brand -->
     <style name="Robbie.Subtitle1.Brand" parent="Robbie.Subtitle1">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.Subtitle2.Brand" parent="Robbie.Subtitle2">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.Subtitle3.Brand" parent="Robbie.Subtitle3">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <!-- Brand Bold -->
     <style name="Robbie.Subtitle1.Brand.Bold" parent="Robbie.Subtitle1.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.Subtitle2.Brand.Bold" parent="Robbie.Subtitle2.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.Subtitle3.Brand.Bold" parent="Robbie.Subtitle3.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 </resources>

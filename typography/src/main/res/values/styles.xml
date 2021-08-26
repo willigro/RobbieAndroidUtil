@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Robbie.TypographyTheme">
+        <item name="robbieHeadingTextColor">@color/robbie_color_text_dark_primary_pure</item>
+        <item name="robbieSubtitleTextColor">@color/robbie_color_text_dark_primary_1</item>
+        <item name="robbieParagraphTextColor">@color/robbie_color_text_dark_primary_2</item>
+        <item name="robbieBrandTextColor">@color/robbie_color_brand_light_primary_pure</item>
+    </style>
+</resources>

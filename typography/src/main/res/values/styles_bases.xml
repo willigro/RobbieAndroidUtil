@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="RobbieText" parent="TextAppearance.AppCompat">
+    <style name="Robbie.Text" parent="TextAppearance.AppCompat">
+        <item name="theme">?robbieTypographyTheme</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:textColor">?robbieParagraphTextColor</item>
     </style>
 
-    <style name="RobbieText.Bold" parent="RobbieText">
+    <style name="Robbie.Text.Bold" parent="Robbie.Text">
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="RobbieText.Brand" parent="TextAppearance.AppCompat">
+    <style name="Robbie.Text.Brand" parent="TextAppearance.AppCompat">
+        <item name="theme">?robbieTypographyTheme</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
-    <style name="RobbieText.Brand.Bold" parent="RobbieText.Brand">
+    <style name="Robbie.Text.Brand.Bold" parent="Robbie.Text.Brand">
         <item name="android:textStyle">bold</item>
     </style>
 </resources>

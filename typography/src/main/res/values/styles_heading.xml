@@ -2,27 +2,27 @@
 <resources>
 
     <!-- Normal -->
-    <style name="Robbie.H1" parent="RobbieText">
+    <style name="Robbie.H1" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_h1</item>
     </style>
 
-    <style name="Robbie.H2" parent="RobbieText">
+    <style name="Robbie.H2" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_h2</item>
     </style>
 
-    <style name="Robbie.H3" parent="RobbieText">
+    <style name="Robbie.H3" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_h3</item>
     </style>
 
-    <style name="Robbie.H4" parent="RobbieText">
+    <style name="Robbie.H4" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_h4</item>
     </style>
 
-    <style name="Robbie.H5" parent="RobbieText">
+    <style name="Robbie.H5" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_h5</item>
     </style>
 
-    <style name="Robbie.H6" parent="RobbieText">
+    <style name="Robbie.H6" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_h6</item>
     </style>
 
@@ -53,51 +53,51 @@
 
     <!-- Brand -->
     <style name="Robbie.H1.Brand" parent="Robbie.H1">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.H2.Brand" parent="Robbie.H2">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.H3.Brand" parent="Robbie.H3">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.H4.Brand" parent="Robbie.H4">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.H5.Brand" parent="Robbie.H5">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.H6.Brand" parent="Robbie.H6">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <!-- Brand Bold -->
     <style name="Robbie.H1.Brand.Bold" parent="Robbie.H1.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.H2.Brand.Bold" parent="Robbie.H2.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.H3.Brand.Bold" parent="Robbie.H3.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.H4.Brand.Bold" parent="Robbie.H4.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.H5.Brand.Bold" parent="Robbie.H5.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.H6.Brand.Bold" parent="Robbie.H6.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 </resources>

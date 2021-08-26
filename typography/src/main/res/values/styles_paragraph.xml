@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Normal -->
-    <style name="Robbie.Paragraph1" parent="RobbieText">
+    <style name="Robbie.Paragraph1" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_p1</item>
     </style>
 
-    <style name="Robbie.Paragraph2" parent="RobbieText">
+    <style name="Robbie.Paragraph2" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_p2</item>
     </style>
 
-    <style name="Robbie.Paragraph3" parent="RobbieText">
+    <style name="Robbie.Paragraph3" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_p3</item>
     </style>
 
@@ -28,28 +28,28 @@
 
     <!-- Brand -->
     <style name="Robbie.Paragraph1.Brand" parent="Robbie.Paragraph1">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.Paragraph2.Brand" parent="Robbie.Paragraph2">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.Paragraph3.Brand" parent="Robbie.Paragraph3">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <!-- Brand Bold -->
     <style name="Robbie.Paragraph1.Brand.Bold" parent="Robbie.Paragraph1.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.Paragraph2.Brand.Bold" parent="Robbie.Paragraph2.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
     <style name="Robbie.Paragraph3.Brand.Bold" parent="Robbie.Paragraph3.Bold">
-        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textColor">?robbieBrandTextColor</item>
     </style>
 
 </resources>
