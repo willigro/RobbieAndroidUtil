@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".TypographyActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity android:name=".ModalActivity" />
         <activity android:name=".DialogsActivity" />
         <activity android:name=".ProgressActivity" />
