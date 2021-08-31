@@ -55,4 +55,5 @@ dependencies {
     implementation project(':sqlitetools')
     implementation project(':androidtools')
     implementation project(':typography')
+    implementation project(':buttons')
 }

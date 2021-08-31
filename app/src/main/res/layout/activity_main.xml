@@ -15,6 +15,12 @@
         android:text="Typography" />
 
     <Button
+        android:id="@+id/show_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Buttons" />
+
+    <Button
         android:id="@+id/show_dialogs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

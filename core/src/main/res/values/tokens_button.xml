@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bool -->
+    <bool name="robbie_button_text_all_caps">true</bool>
+
+    <!-- Dimens -->
+    <dimen name="robbie_button_corners_radius" category="radius">10dp</dimen>
+    <dimen name="robbie_button_padding_default_all_sides">14dp</dimen>
+
+    <dimen name="robbie_button_icon_size_lg">14dp</dimen>
+    <dimen name="robbie_button_icon_size_md">12dp</dimen>
+    <dimen name="robbie_button_icon_size_sm">10dp</dimen>
+
+    <dimen name="robbie_button_text_size_lg" category="font-size">18sp</dimen>
+    <dimen name="robbie_button_text_size_md" category="font-size">16sp</dimen>
+    <dimen name="robbie_button_text_size_sm" category="font-size">12sp</dimen>
+
+    <dimen name="robbie_button_width_lg">240dp</dimen>
+    <dimen name="robbie_button_width_md">180dp</dimen>
+    <dimen name="robbie_button_width_sm">120dp</dimen>
+
+    <dimen name="robbie_button_underline_height">2dp</dimen>
+
+    <!-- Color -->
+    <color name="robbie_button_text_color_primary" category="color">#FFEB3B</color>
+    <color name="robbie_button_text_color_secondary" category="color">#FFEB3B</color>
+    <color name="robbie_button_text_color_under" category="color">#FFEB3B</color>
+    <color name="robbie_button_text_color_transparent" category="color">#FFEB3B</color>
+
+    <color name="robbie_button_color_primary" category="color">#000000</color>
+    <color name="robbie_button_color_secondary" category="color">#000000</color>
+    <color name="robbie_button_color_under" category="color">#000000</color>
+    <color name="robbie_button_color_transparent" category="color">#80000000</color>
+
+    <!-- Drawable -->
+    <drawable name="robbie_button_background_primary" category="color">@drawable/robbie_button_background_drawable_primary</drawable>
+    <drawable name="robbie_button_background_secondary" category="color">@drawable/robbie_button_background_drawable_secondary</drawable>
+    <drawable name="robbie_button_background_under" category="color">@drawable/robbie_button_background_drawable_under</drawable>
+    <drawable name="robbie_button_background_transparent" category="color">@drawable/robbie_button_background_drawable_transparent</drawable>
+</resources>

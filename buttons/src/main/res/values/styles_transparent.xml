@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Robbie.Button.Transparent.Complete" parent="Robbie.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/robbie_button_text_size_md</item>
+        <item name="iconSize">@dimen/robbie_button_icon_size_md</item>
+        <item name="iconTint">?robbieButtonIconTintColorTransparent</item>
+        <item name="android:background">?robbieButtonBackgroundTransparent</item>
+        <item name="android:textColor">?robbieButtonTextColorTransparent</item>
+        <item name="android:textColorPrimary">?robbieButtonTextColorTransparent</item>
+    </style>
+
+    <style name="Robbie.Button.Transparent.LG" parent="Robbie.Button">
+        <item name="android:minWidth">@dimen/robbie_button_width_lg</item>
+        <item name="android:textSize">@dimen/robbie_button_text_size_lg</item>
+        <item name="iconSize">@dimen/robbie_button_icon_size_lg</item>
+        <item name="iconTint">?robbieButtonIconTintColorTransparent</item>
+        <item name="android:background">?robbieButtonBackgroundTransparent</item>
+        <item name="android:textColor">?robbieButtonTextColorTransparent</item>
+        <item name="android:textColorPrimary">?robbieButtonTextColorTransparent</item>
+    </style>
+
+    <style name="Robbie.Button.Transparent.MD" parent="Robbie.Button">
+        <item name="android:minWidth">@dimen/robbie_button_width_md</item>
+        <item name="android:textSize">@dimen/robbie_button_text_size_md</item>
+        <item name="iconSize">@dimen/robbie_button_icon_size_md</item>
+        <item name="iconTint">?robbieButtonIconTintColorTransparent</item>
+        <item name="android:background">?robbieButtonBackgroundTransparent</item>
+        <item name="android:textColor">?robbieButtonTextColorTransparent</item>
+        <item name="android:textColorPrimary">?robbieButtonTextColorTransparent</item>
+    </style>
+
+    <style name="Robbie.Button.Transparent.SM" parent="Robbie.Button">
+        <item name="android:minWidth">@dimen/robbie_button_width_sm</item>
+        <item name="android:textSize">@dimen/robbie_button_text_size_sm</item>
+        <item name="iconSize">@dimen/robbie_button_icon_size_sm</item>
+        <item name="iconTint">?robbieButtonIconTintColorTransparent</item>
+        <item name="android:background">?robbieButtonBackgroundTransparent</item>
+        <item name="android:textColor">?robbieButtonTextColorTransparent</item>
+        <item name="android:textColorPrimary">?robbieButtonTextColorTransparent</item>
+        <item name="layout_constraintWidth_percent">.5</item>
+    </style>
+
+    <style name="Robbie.Button.Transparent.WRAP" parent="Robbie.Button">
+        <item name="android:textSize">@dimen/robbie_button_text_size_md</item>
+        <item name="iconSize">@dimen/robbie_button_icon_size_md</item>
+        <item name="iconTint">?robbieButtonIconTintColorTransparent</item>
+        <item name="android:background">?robbieButtonBackgroundTransparent</item>
+        <item name="android:textColor">?robbieButtonTextColorTransparent</item>
+        <item name="android:textColorPrimary">?robbieButtonTextColorTransparent</item>
+    </style>
+</resources>

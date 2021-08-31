@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Robbie.Button">
+        <item name="theme">?robbieButtonTheme</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">@bool/robbie_button_text_all_caps</item>
+        <item name="cornerRadius">@dimen/robbie_button_corners_radius</item>
+        <item name="rippleColor">@color/robbie_ripple_color</item>
+        <item name="iconGravity">textStart</item>
+        <item name="android:padding">@dimen/robbie_button_padding_default_all_sides</item>
+    </style>
+
+    <style name="Robbie.ButtonTheme">
+        <item name="robbieButtonTextColorPrimary">@color/robbie_button_text_color_primary</item>
+        <item name="robbieButtonTextColorSecondary">@color/robbie_button_text_color_secondary</item>
+        <item name="robbieButtonTextColorUnder">@color/robbie_button_text_color_under</item>
+        <item name="robbieButtonTextColorTransparent">@color/robbie_button_text_color_transparent</item>
+
+        <item name="robbieButtonBackgroundPrimary">
+            @drawable/robbie_button_background_primary
+        </item>
+
+        <item name="robbieButtonBackgroundSecondary">
+            @drawable/robbie_button_background_secondary
+        </item>
+
+        <item name="robbieButtonBackgroundUnder">
+            @drawable/robbie_button_background_under
+        </item>
+
+        <item name="robbieButtonBackgroundTransparent">
+            @drawable/robbie_button_background_transparent
+        </item>
+
+        <item name="isLoading">false</item>
+    </style>
+</resources>

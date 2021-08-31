@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="robbie_color_text_light_primary_pure" category="color">#E9ECEB</color>
+    <color name="robbie_color_text_dark_primary_pure" category="color">#202020</color>
+    <color name="robbie_color_text_light_primary_1" category="color">#FFEB3B</color>
+    <color name="robbie_color_text_dark_primary_1" category="color">#534C0A</color>
+    <color name="robbie_color_text_light_primary_2" category="color">#3F51B5</color>
+    <color name="robbie_color_text_dark_primary_2" category="color">#092153</color>
+
+    <color name="robbie_color_text_light_secondary_pure" category="color">#CDF3E6</color>
+    <color name="robbie_color_text_dark_secondary_pure" category="color">#5A3232</color>
+</resources>

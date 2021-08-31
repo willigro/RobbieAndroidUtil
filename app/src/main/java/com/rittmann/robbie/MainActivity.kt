@@ -19,6 +19,7 @@ import com.rittmann.sqlitetools.mocksqlite.TableSchema
 import com.rittmann.sqlitetools.mocksqlite.TextColumnRule
 import com.rittmann.sqlitetools.mocksqlite.mock
 import kotlinx.android.synthetic.main.activity_main.execute_sql
+import kotlinx.android.synthetic.main.activity_main.show_buttons
 import kotlinx.android.synthetic.main.activity_main.show_dialogs
 import kotlinx.android.synthetic.main.activity_main.show_modals
 import kotlinx.android.synthetic.main.activity_main.show_progress
@@ -36,6 +37,10 @@ class MainActivity : BaseActivity() {
 
         show_typography.setOnClickListener {
             start<TypographyActivity>()
+        }
+
+        show_buttons.setOnClickListener {
+            start<ButtonsActivity>()
         }
 
         show_progress.setOnClickListener {

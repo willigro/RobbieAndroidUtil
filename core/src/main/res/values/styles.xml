@@ -2,4 +2,9 @@
 <resources>
 
     <style name="Robbie" />
+
+    <style name="Clickable">
+        <item name="android:clickable">true</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
 </resources>

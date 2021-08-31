@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ButtonsActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal button" />
+
+        <Button
+            style="@style/Robbie.Button"
+            android:text="Robbie.Button" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#888888"
+            android:orientation="vertical">
+
+            <Button
+                style="@style/Robbie.Button.Primary.Complete"
+                android:text="Primary.Complete" />
+
+            <Button
+                style="@style/Robbie.Button.Primary.LG"
+                android:text="Primary.LG" />
+
+            <Button
+                style="@style/Robbie.Button.Primary.MD"
+                android:text="Primary.MD" />
+
+            <Button
+                style="@style/Robbie.Button.Primary.SM"
+                android:text="Primary.SM" />
+
+            <Button
+                style="@style/Robbie.Button.Primary.WRAP"
+                android:text="Primary.WRAP" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#888888"
+            android:orientation="vertical">
+
+            <Button
+                style="@style/Robbie.Button.Secondary.Complete"
+                android:text="Secondary.Complete" />
+
+            <Button
+                style="@style/Robbie.Button.Secondary.LG"
+                android:text="Secondary.LG" />
+
+            <Button
+                style="@style/Robbie.Button.Secondary.MD"
+                android:text="Secondary.MD - Replaced" />
+
+            <Button
+                style="@style/Robbie.Button.Secondary.SM"
+                android:text="Secondary.SM" />
+
+            <Button
+                style="@style/Robbie.Button.Secondary.WRAP"
+                android:text="Secondary.WRAP" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#888888"
+            android:orientation="vertical">
+
+            <Button
+                style="@style/Robbie.Button.Under.Complete"
+                android:text="Under.Complete" />
+
+            <Button
+                style="@style/Robbie.Button.Under.LG"
+                android:text="Under.LG" />
+
+            <Button
+                style="@style/Robbie.Button.Under.MD"
+                android:text="Under.MD - Replaced" />
+
+            <Button
+                style="@style/Robbie.Button.Under.SM"
+                android:text="Under.SM" />
+
+            <Button
+                style="@style/Robbie.Button.Under.WRAP"
+                android:text="Under.WRAP" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#673AB7"
+            android:orientation="vertical">
+
+            <Button
+                style="@style/Robbie.Button.Transparent.Complete"
+                android:text="Transparent.Complete" />
+
+            <Button
+                style="@style/Robbie.Button.Transparent.LG"
+                android:text="Transparent.LG" />
+
+            <Button
+                style="@style/Robbie.Button.Transparent.MD"
+                android:text="Transparent.MD - REPLACED" />
+
+            <Button
+                style="@style/Robbie.Button.Transparent.SM"
+                android:text="Transparent.SM" />
+
+            <Button
+                style="@style/Robbie.Button.Transparent.WRAP"
+                android:text="Transparent.WRAP" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</ScrollView>

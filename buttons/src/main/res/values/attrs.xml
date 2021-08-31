@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="robbieButtonTextColorPrimary" format="reference" />
+    <attr name="robbieButtonTextColorSecondary" format="reference" />
+    <attr name="robbieButtonTextColorUnder" format="reference" />
+    <attr name="robbieButtonTextColorTransparent" format="reference" />
+
+    <attr name="robbieButtonBackgroundPrimary" format="reference" />
+    <attr name="robbieButtonBackgroundSecondary" format="reference" />
+    <attr name="robbieButtonBackgroundUnder" format="reference" />
+    <attr name="robbieButtonBackgroundTransparent" format="reference" />
+
+    <attr name="robbieButtonIconTintColorPrimary" format="reference" />
+    <attr name="robbieButtonIconTintColorSecondary" format="reference" />
+    <attr name="robbieButtonIconTintColorUnder" format="reference" />
+    <attr name="robbieButtonIconTintColorTransparent" format="reference" />
+
+    <attr name="isLoading" format="boolean" />
+
+    <attr name="robbieButtonTheme" format="reference" />
+</resources>

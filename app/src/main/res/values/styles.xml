@@ -8,6 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
 
         <item name="robbieTypographyTheme">@style/Robbie.TypographyTheme</item>
+        <item name="robbieButtonTheme">@style/Robbie.ButtonTheme</item>
     </style>
 
 </resources>

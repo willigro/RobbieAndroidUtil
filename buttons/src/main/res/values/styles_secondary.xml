@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Robbie.Button.Secondary.Complete" parent="Robbie.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">@dimen/robbie_button_text_size_md</item>
+        <item name="iconSize">@dimen/robbie_button_icon_size_md</item>
+        <item name="iconTint">?robbieButtonIconTintColorSecondary</item>
+        <item name="android:background">?robbieButtonBackgroundSecondary</item>
+        <item name="android:textColor">?robbieButtonTextColorSecondary</item>
+        <item name="android:textColorPrimary">?robbieButtonTextColorSecondary</item>
+    </style>
+
+    <style name="Robbie.Button.Secondary.LG" parent="Robbie.Button">
+        <item name="android:minWidth">@dimen/robbie_button_width_lg</item>
+        <item name="android:textSize">@dimen/robbie_button_text_size_lg</item>
+        <item name="iconSize">@dimen/robbie_button_icon_size_lg</item>
+        <item name="iconTint">?robbieButtonIconTintColorSecondary</item>
+        <item name="android:background">?robbieButtonBackgroundSecondary</item>
+        <item name="android:textColor">?robbieButtonTextColorSecondary</item>
+        <item name="android:textColorPrimary">?robbieButtonTextColorSecondary</item>
+    </style>
+
+    <style name="Robbie.Button.Secondary.MD" parent="Robbie.Button">
+        <item name="android:minWidth">@dimen/robbie_button_width_md</item>
+        <item name="android:textSize">@dimen/robbie_button_text_size_md</item>
+        <item name="iconSize">@dimen/robbie_button_icon_size_md</item>
+        <item name="iconTint">?robbieButtonIconTintColorSecondary</item>
+        <item name="android:background">?robbieButtonBackgroundSecondary</item>
+        <item name="android:textColor">?robbieButtonTextColorSecondary</item>
+        <item name="android:textColorPrimary">?robbieButtonTextColorSecondary</item>
+    </style>
+
+    <style name="Robbie.Button.Secondary.SM" parent="Robbie.Button">
+        <item name="android:minWidth">@dimen/robbie_button_width_sm</item>
+        <item name="android:textSize">@dimen/robbie_button_text_size_sm</item>
+        <item name="iconSize">@dimen/robbie_button_icon_size_sm</item>
+        <item name="iconTint">?robbieButtonIconTintColorSecondary</item>
+        <item name="android:background">?robbieButtonBackgroundSecondary</item>
+        <item name="android:textColor">?robbieButtonTextColorSecondary</item>
+        <item name="android:textColorPrimary">?robbieButtonTextColorSecondary</item>
+    </style>
+
+    <style name="Robbie.Button.Secondary.WRAP" parent="Robbie.Button">
+        <item name="android:textSize">@dimen/robbie_button_text_size_md</item>
+        <item name="iconSize">@dimen/robbie_button_icon_size_md</item>
+        <item name="iconTint">?robbieButtonIconTintColorSecondary</item>
+        <item name="android:background">?robbieButtonBackgroundSecondary</item>
+        <item name="android:textColor">?robbieButtonTextColorSecondary</item>
+        <item name="android:textColorPrimary">?robbieButtonTextColorSecondary</item>
+    </style>
+</resources>
