@@ -56,4 +56,5 @@ dependencies {
     implementation project(':androidtools')
     implementation project(':typography')
     implementation project(':buttons')
+    implementation project(':textfield')
 }

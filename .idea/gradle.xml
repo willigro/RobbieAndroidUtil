@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/buttons" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/sqlitetools" />
+            <option value="$PROJECT_DIR$/textfield" />
             <option value="$PROJECT_DIR$/typography" />
             <option value="$PROJECT_DIR$/widgets" />
           </set>

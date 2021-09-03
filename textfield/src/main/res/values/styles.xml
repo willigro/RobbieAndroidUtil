@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Robbie.TextInputTheme">
+        <item name="theme">?robbieTextInputTheme</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">@bool/robbie_button_text_all_caps</item>
+        <item name="cornerRadius">@dimen/robbie_button_corners_radius</item>
+        <item name="android:padding">@dimen/robbie_button_padding_default_all_sides</item>
+    </style>
+
+    <style name="Robbie.TextInput">
+        <item name="robbieTextInputBackgroundPrimary">@color/robbie_input_text_background</item>
+    </style>
+</resources>

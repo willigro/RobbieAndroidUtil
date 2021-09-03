@@ -9,6 +9,7 @@
 
         <item name="robbieTypographyTheme">@style/Robbie.TypographyTheme</item>
         <item name="robbieButtonTheme">@style/Robbie.ButtonTheme</item>
+        <item name="robbieTextInputTheme">@style/Robbie.TextInputTheme</item>
     </style>
 
 </resources>
