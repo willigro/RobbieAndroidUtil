@@ -1,33 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DesignSurface">
-    <option name="filePathToZoomLevelMap">
-      <map>
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/app/src/main/res/drawable/robbie_button_background_drawable_primary.xml" value="0.14583333333333334" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/app/src/main/res/drawable/robbie_button_background_drawable_secondary_to_replace.xml" value="0.14583333333333334" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/app/src/main/res/layout/activity_buttons.xml" value="0.25" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/app/src/main/res/layout/activity_dialogs.xml" value="0.11296296296296296" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/app/src/main/res/layout/activity_main.xml" value="0.14583333333333334" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/app/src/main/res/layout/activity_modal.xml" value="0.15307971014492755" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/app/src/main/res/layout/activity_typography.xml" value="0.1" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/app/src/main/res/layout/fragment_blank.xml" value="0.2164855072463768" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/buttons/src/main/res/drawable/robbie_button_background_drawable_ok.xml" value="0.2703125" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/buttons/src/main/res/drawable/robbie_button_background_drawable_primary.xml" value="0.2703125" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/buttons/src/main/res/drawable/robbie_button_background_drawable_secondary.xml" value="0.14583333333333334" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/buttons/src/main/res/drawable/robbie_button_background_drawable_secondary_to_replace.xml" value="0.14583333333333334" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/buttons/src/main/res/drawable/robbie_button_background_drawable_transparent.xml" value="0.14583333333333334" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/buttons/src/main/res/drawable/robbie_button_background_drawable_under.xml" value="0.14583333333333334" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/core/src/main/res/drawable/robbie_button_background_drawable_primary.xml" value="0.14583333333333334" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/core/src/main/res/drawable/robbie_button_background_drawable_secondary.xml" value="0.2703125" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/core/src/main/res/drawable/robbie_button_background_drawable_transparent.xml" value="0.2703125" />
-        <entry key="..\:/Rittmann/Projetos/Android/Robbie/core/src/main/res/drawable/robbie_button_background_drawable_under.xml" value="0.2703125" />
-      </map>
-    </option>
-  </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
