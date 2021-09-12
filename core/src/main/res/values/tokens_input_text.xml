@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Bool -->
+    <bool name="robbie_input_text_all_caps">false</bool>
+
+    <!-- Dimens -->
+    <dimen name="robbie_input_text_corners_radius">4dp</dimen>
+    <dimen name="robbie_input_text_padding_default_all_sides">6dp</dimen>
+    <dimen name="robbie_input_text_padding_default_bottom">10dp</dimen>
+    <dimen name="robbie_input_text_border_width">1dp</dimen>
+
+    <!-- Colors -->
     <color name="robbie_input_text_background" category="color">#80000000</color>
+    <color name="robbie_input_text_outline_border" category="color">#000000</color>
 </resources>

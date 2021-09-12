@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Robbie.TextInput.Outline" parent="Robbie.TextInput">
+        <item name="android:background">@drawable/background_input_text_outline</item>
+    </style>
+</resources>
