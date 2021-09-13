@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <padding
+        android:bottom="@dimen/robbie_input_text_padding_default_all_sides"
+        android:left="@dimen/robbie_input_text_padding_default_all_sides"
+        android:right="@dimen/robbie_input_text_padding_default_all_sides"
+        android:top="@dimen/robbie_input_text_padding_default_all_sides" />
+    <solid
+        android:color="@color/robbie_input_text_outline_filled" />
+    <corners android:radius="@dimen/robbie_input_text_corners_radius" />
+</shape>

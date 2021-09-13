@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Robbie.TextInput.Filled" parent="Robbie.TextInput">
+        <item name="android:background">@drawable/background_input_text_filled</item>
+        <item name="android:textColor">@color/robbie_color_text_dark_primary_1</item>
+    </style>
+</resources>

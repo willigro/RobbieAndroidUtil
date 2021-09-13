@@ -13,5 +13,6 @@
         <item name="android:padding">@dimen/robbie_input_text_padding_default_all_sides</item>
         <item name="android:paddingBottom">@dimen/robbie_input_text_padding_default_bottom</item>
         <item name="android:inputType">text</item>
+        <item name="android:textColor">@color/robbie_color_text_dark_primary_pure</item>
     </style>
 </resources>

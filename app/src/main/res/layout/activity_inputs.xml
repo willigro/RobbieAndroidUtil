@@ -40,6 +40,12 @@
                 android:importantForAutofill="no"
                 android:text="EditText base style outline"
                 tools:ignore="LabelFor" />
+
+            <EditText
+                style="@style/Robbie.TextInput.Filled"
+                android:importantForAutofill="no"
+                android:text="EditText base style filled"
+                tools:ignore="LabelFor" />
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>
 

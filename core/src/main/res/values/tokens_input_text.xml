@@ -12,4 +12,5 @@
     <!-- Colors -->
     <color name="robbie_input_text_background" category="color">#80000000</color>
     <color name="robbie_input_text_outline_border" category="color">#000000</color>
+    <color name="robbie_input_text_outline_filled" category="color">#D6D1D1</color>
 </resources>
