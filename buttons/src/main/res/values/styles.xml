@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Robbie.Button">
+    <style name="Robbie.Button" parent="Clickable">
         <item name="theme">?robbieButtonTheme</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -11,6 +11,7 @@
         <item name="rippleColor">@color/robbie_ripple_color</item>
         <item name="iconGravity">textStart</item>
         <item name="android:padding">@dimen/robbie_button_padding_default_all_sides</item>
+        <item name="android:layout_margin">@dimen/robbie_button_margin_default_all_sides</item>
     </style>
 
     <style name="Robbie.ButtonTheme">

@@ -6,6 +6,7 @@
     <!-- Dimens -->
     <dimen name="robbie_button_corners_radius" category="radius">10dp</dimen>
     <dimen name="robbie_button_padding_default_all_sides">14dp</dimen>
+    <dimen name="robbie_button_margin_default_all_sides">0dp</dimen>
 
     <dimen name="robbie_button_icon_size_lg">14dp</dimen>
     <dimen name="robbie_button_icon_size_md">12dp</dimen>
@@ -33,8 +34,8 @@
     <color name="robbie_button_color_transparent" category="color">#80000000</color>
 
     <!-- Drawable -->
-    <drawable name="robbie_button_background_primary" category="color">@drawable/robbie_button_background_drawable_primary</drawable>
-    <drawable name="robbie_button_background_secondary" category="color">@drawable/robbie_button_background_drawable_secondary</drawable>
-    <drawable name="robbie_button_background_under" category="color">@drawable/robbie_button_background_drawable_under</drawable>
-    <drawable name="robbie_button_background_transparent" category="color">@drawable/robbie_button_background_drawable_transparent</drawable>
+    <drawable name="robbie_button_background_primary">@drawable/robbie_button_background_drawable_primary</drawable>
+    <drawable name="robbie_button_background_secondary">@drawable/robbie_button_background_drawable_secondary</drawable>
+    <drawable name="robbie_button_background_under">@drawable/robbie_button_background_drawable_under</drawable>
+    <drawable name="robbie_button_background_transparent">@drawable/robbie_button_background_drawable_transparent</drawable>
 </resources>
