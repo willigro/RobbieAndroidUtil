@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Rittmann/Projetos/Android/Robbie/app/src/main/res/layout/activity_buttons.xml" value="0.20923913043478262" />
+        <entry key="..\:/Rittmann/Projetos/Android/Robbie/core/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Rittmann/Projetos/Android/Robbie/core/src/main/res/layout/activity_main_core.xml" value="0.12360688956433637" />
         <entry key="app/src/main/res/layout/activity_inputs.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.12588652482269502" />
         <entry key="app/src/main/res/layout/activity_typography.xml" value="0.12588652482269502" />
@@ -13,5 +15,5 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

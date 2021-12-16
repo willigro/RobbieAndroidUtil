@@ -54,6 +54,7 @@ dependencies {
 
     debugImplementation "androidx.fragment:fragment-testing:1.2.5"
 
+    implementation project(':core')
     implementation project(':widgets')
     implementation project(':baselifecycle')
     implementation project(':sqlitetools')
