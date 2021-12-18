@@ -1,0 +1,11 @@
+include(
+    ":sqlitetools",
+    ":baselifecycle",
+    ":app",
+    ":widgets",
+    ":androidtools",
+    ":typography",
+    ":core",
+    ":buttons",
+    ":textfield"
+)
