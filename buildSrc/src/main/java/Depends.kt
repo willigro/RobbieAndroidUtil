@@ -195,7 +195,7 @@ object Depends {
 
     object MultiDex {
         fun DependencyHandler.implementMultidex() {
-            implement("com.android.support:multidex:1.0.3")
+            implement("androidx.multidex:multidex:2.0.1")
         }
     }
 }

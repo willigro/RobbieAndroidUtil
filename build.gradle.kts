@@ -76,8 +76,10 @@ fun Project.androidCompile() {
         buildToolsVersion(Versions.BUILD_TOOLS_VERSION)
 
         defaultConfig {
-            if (isApplication)
+            if (isApplication) {
                 applicationId(Versions.APPLICATION_ID)
+                multiDexEnabled = true
+            }
 
             minSdkVersion(Versions.MIN_SDK_VERSION)
             targetSdkVersion(Versions.TARGET_SDK_VERION)

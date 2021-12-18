@@ -15,6 +15,9 @@ dependencies {
     // =========== AppCompat ==============
     implementation(Depends.AppCompat.getAppcompat())
 
+    // =========== Material ==============
+    implementation(Depends.Material.getMaterial())
+
     // =========== Views ==============
     implementLayouts()
 
