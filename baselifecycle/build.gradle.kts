@@ -21,11 +21,3 @@ dependencies {
     // =========== Coroutines ==============
     implementCoroutines()
 }
-
-publishing {
-    publications {
-        create<MavenPublication>(Modules.baselifecycle.clearModule()) {
-            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
-        }
-    }
-}

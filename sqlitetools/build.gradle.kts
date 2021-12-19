@@ -6,9 +6,6 @@ import Depends.Module.implementModules
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
-    // =========== Modules ==============
-    implementModules(Modules.core)
-
     // =========== Kotlin ==============
     implementKotlinForModule()
 
@@ -20,12 +17,4 @@ dependencies {
 
     // =========== Coroutines ==============
     implementCoroutines()
-}
-
-publishing {
-    publications {
-        create<MavenPublication>(Modules.sqlitetools.clearModule()) {
-            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
-        }
-    }
 }

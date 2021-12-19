@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
     repositories {
-        mavenLocal()
+//        mavenLocal()
         google()
         jcenter()
         mavenCentral()
@@ -19,31 +19,11 @@ buildscript {
     }
 }
 
-//ext.publish = { artifactId ->
-//    project.afterEvaluate {
-//        publishing {
-//            publications {
-//                library(MavenPublication) {
-//                    setGroupId project.groupId
-//                            setArtifactId artifactId
-//                            version android.defaultConfig.versionName
-//
-//                            artifact bundleReleaseAar
-//
-//                            println "publishing: $groupId"
-//                    println "publishing: " + artifactId
-//                    println "publishing: " + bundleReleaseAar
-//                }
-//            }
-//        }
-//    }
-//}
-
 allprojects {
     repositories {
         google()
         jcenter()
-        mavenLocal()
+//        mavenLocal()
     }
     androidCompile()
 }

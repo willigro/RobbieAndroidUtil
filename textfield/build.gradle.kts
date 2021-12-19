@@ -1,6 +1,5 @@
 import Depends.Kotlin.implementKotlinForModule
 import Depends.Views.implementLayouts
-import Depends.Coroutines.implementCoroutines
 import Depends.Module.implementModules
 
 dependencies {
@@ -12,20 +11,6 @@ dependencies {
     // =========== Kotlin ==============
     implementKotlinForModule()
 
-    // =========== AppCompat ==============
-    implementation(Depends.AppCompat.getAppcompat())
-
     // =========== Views ==============
     implementLayouts()
-
-    // =========== Coroutines ==============
-    implementCoroutines()
-}
-
-publishing {
-    publications {
-        create<MavenPublication>(Modules.textfield.clearModule()) {
-            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
-        }
-    }
 }
