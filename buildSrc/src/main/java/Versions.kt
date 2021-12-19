@@ -20,7 +20,7 @@ object Versions {
 
     // App version
     const val VERSION_CODE = 1
-    const val VERSION_NAME = "1.3.1.2"
+    const val VERSION_NAME = "1.3.1.3"
 
     // Appcompat
     const val APPCOMPAT = "1.3.1"
