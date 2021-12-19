@@ -43,6 +43,7 @@ fun Project.androidCompile() {
     } else {
         apply(plugin = "com.android.library")
 //        apply(plugin = "maven-publish")
+        apply(plugin = "maven")
         false
     }
 
