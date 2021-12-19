@@ -24,3 +24,15 @@ dependencies {
     // =========== Coroutines ==============
     implementCoroutines()
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = Versions.GROUP_ID
+            artifactId = Modules.buttons.clearModule()
+            version = Versions.VERSION_NAME
+
+            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
+        }
+    }
+}

@@ -8,6 +8,7 @@ object Versions {
     const val GRADLE_TOOL_BUILD = "4.1.2"
 
     // Id
+    const val GROUP_ID = "com.rittmann"
     const val APPLICATION_ID = "com.rittmann.robbie"
 
     // Compile

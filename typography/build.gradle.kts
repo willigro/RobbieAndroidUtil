@@ -17,3 +17,15 @@ dependencies {
     // =========== Material ==============
     implementation(Depends.Material.getMaterial())
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = Versions.GROUP_ID
+            artifactId = Modules.typography.clearModule()
+            version = Versions.VERSION_NAME
+
+            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
+        }
+    }
+}
