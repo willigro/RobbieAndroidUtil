@@ -1,16 +1,18 @@
 package com.rittmann.baselifecycle.base
 
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.rittmann.baselifecycle.keyboard.KeyboardEventListenerInterface
 import com.rittmann.baselifecycle.keyboard.hideKeyboard
 import com.rittmann.baselifecycle.keyboard.isKeyboardOpen
 import com.rittmann.baselifecycle.keyboard.setKeyboardEventListener
+import com.rittmann.widgets.progress.ProgressPriorityControl
 import com.rittmann.widgets.progress.ProgressVisibleControl
 
-open class BaseActivity : AppCompatActivity() {
+open class BaseActivity(open var resIdViewReference: Int = 0) : AppCompatActivity() {
 
-    open var resIdViewReference: Int = 0
+    private val progressPriorityControl: ProgressPriorityControl = ProgressPriorityControl()
 
     open fun showProgress(
         closeKeyboard: Boolean = false,
@@ -28,6 +30,41 @@ open class BaseActivity : AppCompatActivity() {
         }
     }
 
+    open fun showProgressPriority(
+        priority: ProgressPriorityControl.Priority,
+        ignoreId: Boolean = true,
+        closeKeyboard: Boolean = false,
+        cancelable: Boolean = false,
+        dismissCallback: (() -> Unit)? = null
+    ): ProgressPriorityControl.ProgressModel {
+        progressPriorityControl.configureCallbacksOnStarted {
+            showProgress(
+                closeKeyboard,
+                cancelable,
+                dismissCallback
+            )
+        }
+
+        return progressPriorityControl.add(priority, ignoreId)
+    }
+
+    open fun showProgressPriority(
+        progressModel: ProgressPriorityControl.ProgressModel,
+        closeKeyboard: Boolean = false,
+        cancelable: Boolean = false,
+        dismissCallback: (() -> Unit)? = null
+    ): ProgressPriorityControl.ProgressModel {
+        progressPriorityControl.configureCallbacksOnStarted {
+            showProgress(
+                closeKeyboard,
+                cancelable,
+                dismissCallback
+            )
+        }
+
+        return progressPriorityControl.add(progressModel)
+    }
+
     open fun hideProgress(closeKeyboard: Boolean = false) {
         if (closeKeyboard && isKeyboardOpen(findViewById(resIdViewReference))) {
             hideKeyboardAndExecute {
@@ -36,6 +73,30 @@ open class BaseActivity : AppCompatActivity() {
         } else {
             ProgressVisibleControl.hide()
         }
+    }
+
+    open fun hideProgressPriority(
+        progressModel: ProgressPriorityControl.ProgressModel,
+        closeKeyboard: Boolean = false
+    ) {
+        progressPriorityControl.configureCallbacksOnCleared {
+            Log.i(ProgressPriorityControl.TAG, "hideProgressPriority")
+            hideProgress(closeKeyboard)
+        }
+
+        progressPriorityControl.remove(progressModel)
+    }
+
+    open fun hideProgressPriority(
+        priority: ProgressPriorityControl.Priority,
+        closeKeyboard: Boolean = false
+    ) {
+        progressPriorityControl.configureCallbacksOnCleared {
+            Log.i(ProgressPriorityControl.TAG, "hideProgressPriority")
+            hideProgress(closeKeyboard)
+        }
+
+        progressPriorityControl.remove(priority)
     }
 
     private fun hideKeyboardAndExecute(callback: () -> Unit) {
@@ -50,9 +111,31 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun observeLoading(baseViewModel: BaseViewModel) {
-        baseViewModel.isLoading.observe(this, Observer {
+        baseViewModel.isLoading.observe(this, {
             if (it == true) showProgress()
             else hideProgress()
+        })
+    }
+
+    fun observeLoadingPriority(baseViewModel: BaseViewModel) {
+        baseViewModel.isLoadingPriority.observe(this, { progressObversable ->
+            if (progressObversable.showing) {
+                progressObversable.model?.also { model ->
+                    showProgressPriority(model)
+                } ?: kotlin.run {
+                    progressObversable?.priority?.also { priority ->
+                        showProgressPriority(priority)
+                    }
+                }
+            } else {
+                progressObversable.model?.also { model ->
+                    hideProgressPriority(model)
+                } ?: kotlin.run {
+                    progressObversable?.priority?.also { priority ->
+                        hideProgressPriority(priority)
+                    }
+                }
+            }
         })
     }
 }

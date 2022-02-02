@@ -1,26 +1,29 @@
 package com.rittmann.baselifecycle.base
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.rittmann.baselifecycle.livedata.SingleLiveEvent
+import com.rittmann.widgets.progress.ProgressPriorityControl
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 open class BaseViewModel : ViewModel() {
 
     protected var viewModelScopeGen: CoroutineScope? = null
     protected var _progress = MutableLiveData<Boolean>()
+    protected var _progressPriority = MutableLiveData<ProgressPriorityControl.PriorityObservable>()
     protected var _errorCon = SingleLiveEvent<Void>()
     protected var _errorGen = SingleLiveEvent<Void>()
 
     val errorCon get() = _errorCon
     val errorGen get() = _errorGen
     val isLoading get() = _progress
+    val isLoadingPriority get() = _progressPriority
 
     protected fun showProgress() {
         _progress.postValue(true)
@@ -28,6 +31,62 @@ open class BaseViewModel : ViewModel() {
 
     protected fun hideProgress() {
         _progress.postValue(false)
+    }
+
+    protected fun showProgress(
+        progressModel: ProgressPriorityControl.ProgressModel?,
+        post: Boolean = false
+    ) {
+        Log.i(ProgressPriorityControl.TAG, "show $progressModel")
+        val ppc = ProgressPriorityControl.PriorityObservable(
+            true, progressModel, null
+        )
+        if (post)
+            _progressPriority.postValue(ppc)
+        else
+            _progressPriority.value = ppc
+    }
+
+    protected fun showProgress(
+        priority: ProgressPriorityControl.Priority?,
+        post: Boolean = false
+    ) {
+        Log.i(ProgressPriorityControl.TAG, "show $priority")
+        val ppc = ProgressPriorityControl.PriorityObservable(
+            true, null, priority
+        )
+        if (post)
+            _progressPriority.postValue(ppc)
+        else
+            _progressPriority.value = ppc
+    }
+
+    protected fun hideProgress(
+        priority: ProgressPriorityControl.Priority?,
+        post: Boolean = false
+    ) {
+        Log.i(ProgressPriorityControl.TAG, "hide $priority")
+        val ppc = ProgressPriorityControl.PriorityObservable(
+            false, null, priority
+        )
+        if (post)
+            _progressPriority.postValue(ppc)
+        else
+            _progressPriority.value = ppc
+    }
+
+    protected fun hideProgress(
+        progressModel: ProgressPriorityControl.ProgressModel?,
+        post: Boolean = false
+    ) {
+        Log.i(ProgressPriorityControl.TAG, "hide $progressModel")
+        val ppc = ProgressPriorityControl.PriorityObservable(
+            false, progressModel, null
+        )
+        if (post)
+            _progressPriority.postValue(ppc)
+        else
+            _progressPriority.value = ppc
     }
 
     protected open fun handleGenericFailure() {

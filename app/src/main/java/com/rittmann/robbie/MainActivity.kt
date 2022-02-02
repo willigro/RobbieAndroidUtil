@@ -9,6 +9,8 @@ import com.rittmann.androidtools.dateutil.DateUtilImpl
 import com.rittmann.androidtools.log.log
 import com.rittmann.androidtools.start
 import com.rittmann.baselifecycle.base.BaseActivity
+import com.rittmann.robbie.progress.ProgressActivity
+import com.rittmann.robbie.progress.ProgressBaseActivity
 import com.rittmann.robbie.sqlite.HelperDAO
 import com.rittmann.sqlitetools.mocksqlite.CalendarColumnRule
 import com.rittmann.sqlitetools.mocksqlite.ExportDatabase
@@ -44,6 +46,10 @@ class MainActivity : BaseActivity() {
 
         show_progress.setOnClickListener {
             start<ProgressActivity>()
+        }
+
+        show_progress_priority.setOnClickListener {
+            start<ProgressBaseActivity>()
         }
 
         show_dialogs.setOnClickListener {

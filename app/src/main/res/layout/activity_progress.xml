@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/base_content"
     android:orientation="vertical"
-    tools:context=".ProgressActivity">
+    tools:context=".progress.ProgressActivity">
 
     <EditText
         android:layout_width="match_parent"
@@ -27,6 +27,25 @@
     <Button
         android:id="@+id/reset_view_progress"
         android:text="Reset Progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <Button
+        android:id="@+id/control_progress"
+        android:text="Controll progress all low"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/control_one_high_progress"
+        android:text="Controll progress one high"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/control_low_different_ids_progress"
+        android:text="Controll progress all low, different ids"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 </LinearLayout>

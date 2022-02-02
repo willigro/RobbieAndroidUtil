@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".progress.ProgressBaseActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".InputsActivity"
             android:exported="true" />
         <activity
@@ -25,7 +28,7 @@
             android:exported="true" />
         <activity android:name=".ModalActivity" />
         <activity android:name=".DialogsActivity" />
-        <activity android:name=".ProgressActivity" />
+        <activity android:name=".progress.ProgressActivity" />
         <activity android:name=".base.BaseActivityImpl" />
         <activity android:name=".MainActivity">
             <intent-filter>

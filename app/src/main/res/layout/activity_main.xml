@@ -45,6 +45,12 @@
         android:text="Progress" />
 
     <Button
+        android:id="@+id/show_progress_priority"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Progress Priority" />
+
+    <Button
         android:id="@+id/execute_sql"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
