@@ -22,9 +22,9 @@ class Progress(private val activity: AppCompatActivity, private val viewResId: I
     private var callbackOnPressed: OnBackPressedCallback? = null
 
     fun show(cancelable: Boolean = false, dismissCallback: (() -> Unit)? = null) {
-        val viewGroup: ViewGroup = activity.findViewById(viewResId)
+        val viewGroup: ViewGroup? = activity.findViewById(viewResId)
 
-        viewGroup.post {
+        viewGroup?.post {
             if (dialog == null || dialog!!.isShowing.not()) {
                 this.cancelable = cancelable
 
@@ -80,8 +80,8 @@ class Progress(private val activity: AppCompatActivity, private val viewResId: I
     }
 
     fun dismiss() {
-        val viewGroup: ViewGroup = activity.findViewById(viewResId)
-        viewGroup.post {
+        val viewGroup: ViewGroup? = activity.findViewById(viewResId)
+        viewGroup?.post {
             dialog?.dismiss()
         }
     }

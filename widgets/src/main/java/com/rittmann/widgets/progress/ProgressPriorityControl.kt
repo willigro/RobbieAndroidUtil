@@ -1,5 +1,7 @@
 package com.rittmann.widgets.progress
 
+import android.util.Log
+
 /**
  * todo Export to another file if need
  *
@@ -51,7 +53,7 @@ class ProgressPriorityControl(
 
         return model.apply {
             this.added = added
-//            Log.i(TAG, "Adding list $list")
+            Log.i(TAG, "Adding list $list")
         }
     }
 
@@ -85,7 +87,7 @@ class ProgressPriorityControl(
 
         return model.apply {
             this.added = added
-//            Log.i(TAG, "Adding list $list")
+            Log.i(TAG, "Adding list $list")
         }
     }
 
@@ -93,7 +95,7 @@ class ProgressPriorityControl(
         progressModel: ProgressModel,
         doOnCleared: Boolean = true
     ) {
-//        Log.i(TAG, "Remove $progressModel")
+        Log.i(TAG, "Remove $progressModel")
         if (progressModel.priority == Priority.HIGH) {
             list.clear()
             dismiss()
@@ -103,19 +105,19 @@ class ProgressPriorityControl(
         for (l in list)
             if (l.id == progressModel.id) {
                 list.remove(l)
-//                Log.i(TAG, "It was removed $progressModel")
+                Log.i(TAG, "It was removed $progressModel")
                 break
             }
 
         if (doOnCleared && list.isEmpty()) {
             dismiss()
-//            Log.i(TAG, "Dismiss by $progressModel")
+            Log.i(TAG, "Dismiss by $progressModel")
         }
-//        Log.i(TAG, "List $list")
+        Log.i(TAG, "List $list")
     }
 
     fun remove(priority: Priority, doOnCleared: Boolean = true) {
-//        Log.i(TAG, "Remove $priority")
+        Log.i(TAG, "Remove $priority")
         if (priority == Priority.HIGH) {
             list.clear()
             dismiss()
@@ -127,15 +129,15 @@ class ProgressPriorityControl(
         for (l in list)
             if (l.id == model.id) {
                 list.remove(l)
-//                Log.i(TAG, "It was removed $priority")
+                Log.i(TAG, "It was removed $priority")
                 break
             }
 
         if (doOnCleared && list.isEmpty()) {
             dismiss()
-//            Log.i(TAG, "dismiss by $priority")
+            Log.i(TAG, "dismiss by $priority")
         }
-//        Log.i(TAG, "List $list")
+        Log.i(TAG, "List $list")
     }
 
     private fun show() {
