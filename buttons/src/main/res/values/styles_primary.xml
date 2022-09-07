@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <style name="Robbie.Button.Primary.Complete" parent="Robbie.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:textSize">@dimen/robbie_button_text_size_md</item>

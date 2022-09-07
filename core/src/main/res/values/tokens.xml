@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="robbie_color_brand_light_primary_pure" category="color">#F44336</color>
+    <color name="robbie_color_brand_light_primary_variant_pure" category="color">#F44336</color>
+    <color name="robbie_color_brand_light_on_primary_variant_pure" category="color">#F44336</color>
+
     <color name="robbie_color_brand_dark_primary_pure" category="color">#118C80</color>
+    <color name="robbie_color_brand_dark_primary_variant_pure" category="color">#F44336</color>
+    <color name="robbie_color_brand_dark_on_primary_variant_pure" category="color">#F44336</color>
+
+    <color name="robbie_color_brand_light_secondary_pure" category="color">#F44336</color>
+    <color name="robbie_color_brand_light_secondary_variant_pure" category="color">#F44336</color>
+    <color name="robbie_color_brand_light_on_secondary_variant_pure" category="color">
+        #F44336
+    </color>
+
+    <color name="robbie_color_brand_dark_secondary_pure" category="color">#118C80</color>
+    <color name="robbie_color_brand_dark_secondary_variant_pure" category="color">#F44336</color>
+    <color name="robbie_color_brand_dark_on_secondary_variant_pure" category="color">#F44336</color>
+
+    <color name="robbie_color_dark_background_primary" category="color">#252525</color>
+    <color name="robbie_color_light_background_primary" category="color">#000000</color>
+
+    <color name="robbie_color_dark_background_secondary" category="color">#FFFFFF</color>
+    <color name="robbie_color_light_background_secondary" category="color">#D5D5D5</color>
 
     <color name="robbie_ripple_color" category="color">#FFEB3B</color>
 </resources>

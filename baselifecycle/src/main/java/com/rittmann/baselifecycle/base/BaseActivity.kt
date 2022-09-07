@@ -2,7 +2,6 @@ package com.rittmann.baselifecycle.base
 
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.rittmann.baselifecycle.keyboard.KeyboardEventListenerInterface
 import com.rittmann.baselifecycle.keyboard.hideKeyboard
 import com.rittmann.baselifecycle.keyboard.isKeyboardOpen
@@ -111,31 +110,31 @@ open class BaseActivity(open var resIdViewReference: Int = 0) : AppCompatActivit
     }
 
     fun observeLoading(baseViewModel: BaseViewModel) {
-        baseViewModel.isLoading.observe(this, {
+        baseViewModel.isLoading.observe(this) {
             if (it == true) showProgress()
             else hideProgress()
-        })
+        }
     }
 
     fun observeLoadingPriority(baseViewModel: BaseViewModel) {
-        baseViewModel.isLoadingPriority.observe(this, { progressObversable ->
-            if (progressObversable.showing) {
-                progressObversable.model?.also { model ->
+        baseViewModel.isLoadingPriority.observe(this) { priorityObservable ->
+            if (priorityObservable.showing) {
+                priorityObservable.model?.also { model ->
                     showProgressPriority(model)
                 } ?: kotlin.run {
-                    progressObversable?.priority?.also { priority ->
+                    priorityObservable?.priority?.also { priority ->
                         showProgressPriority(priority)
                     }
                 }
             } else {
-                progressObversable.model?.also { model ->
+                priorityObservable.model?.also { model ->
                     hideProgressPriority(model)
                 } ?: kotlin.run {
-                    progressObversable?.priority?.also { priority ->
+                    priorityObservable?.priority?.also { priority ->
                         hideProgressPriority(priority)
                     }
                 }
             }
-        })
+        }
     }
 }

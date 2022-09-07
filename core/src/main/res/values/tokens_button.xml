@@ -23,15 +23,20 @@
     <dimen name="robbie_button_underline_height">2dp</dimen>
 
     <!-- Color -->
-    <color name="robbie_button_text_color_primary" category="color">#FFEB3B</color>
+    <color name="robbie_button_text_color_primary" category="color">#e51ead</color>
     <color name="robbie_button_text_color_secondary" category="color">#FFEB3B</color>
     <color name="robbie_button_text_color_under" category="color">#FFEB3B</color>
     <color name="robbie_button_text_color_transparent" category="color">#FFEB3B</color>
 
-    <color name="robbie_button_color_primary" category="color">#000000</color>
-    <color name="robbie_button_color_secondary" category="color">#000000</color>
-    <color name="robbie_button_color_under" category="color">#000000</color>
-    <color name="robbie_button_color_transparent" category="color">#80000000</color>
+    <color name="robbie_button_color_primary" category="color">#DA1E2E</color>
+    <color name="robbie_button_color_secondary" category="color">#3827b4</color>
+    <color name="robbie_button_color_under" category="color">#8BC34A</color>
+    <color name="robbie_button_color_transparent" category="color">#03A9F4</color>
+
+    <color name="robbie_button_icon_tint_color_primary">#FFF</color>
+    <color name="robbie_button_icon_tint_color_secondary">#FFF</color>
+    <color name="robbie_button_icon_tint_color_transparent">#FFF</color>
+    <color name="robbie_button_icon_tint_color_under">#FFF</color>
 
     <!-- Drawable -->
     <drawable name="robbie_button_background_primary">@drawable/robbie_button_background_drawable_primary</drawable>

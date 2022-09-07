@@ -18,8 +18,10 @@
         <item name="robbieButtonTextColorPrimary">@color/robbie_button_text_color_primary</item>
         <item name="robbieButtonTextColorSecondary">@color/robbie_button_text_color_secondary</item>
         <item name="robbieButtonTextColorUnder">@color/robbie_button_text_color_under</item>
-        <item name="robbieButtonTextColorTransparent">@color/robbie_button_text_color_transparent</item>
+        <item name="robbieButtonTextColorTransparent">@color/robbie_button_text_color_transparent
+        </item>
 
+        <!-- Background -->
         <item name="robbieButtonBackgroundPrimary">
             @drawable/robbie_button_background_primary
         </item>
@@ -34,6 +36,24 @@
 
         <item name="robbieButtonBackgroundTransparent">
             @drawable/robbie_button_background_transparent
+        </item>
+
+        <!-- Icon tint -->
+
+        <item name="robbieButtonIconTintColorPrimary">
+            @color/robbie_button_icon_tint_color_primary
+        </item>
+
+        <item name="robbieButtonIconTintColorSecondary">
+            @color/robbie_button_icon_tint_color_secondary
+        </item>
+
+        <item name="robbieButtonIconTintColorTransparent">
+            @color/robbie_button_icon_tint_color_transparent
+        </item>
+
+        <item name="robbieButtonIconTintColorUnder">
+            @color/robbie_button_icon_tint_color_under
         </item>
 
         <item name="isLoading">false</item>

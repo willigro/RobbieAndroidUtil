@@ -63,11 +63,12 @@ class ProgressBaseActivity : BaseActivity(R.id.container) {
         }
 
         control_low_using_view_model.setOnClickListener {
-            viewModel.loadUntil(10_000, ProgressPriorityControl.Priority.LOW)
+//            viewModel.loadUntil(10_000, ProgressPriorityControl.Priority.LOW)
 
-            viewModel.loadUntilModel(5_000, ProgressPriorityControl.Priority.LOW)
+            viewModel.loadUntilModel(1_000, ProgressPriorityControl.ProgressModel("1"))
+            viewModel.loadUntilModel(3_000, ProgressPriorityControl.ProgressModel("2"))
 
-            viewModel.loadUntil(3_000, ProgressPriorityControl.Priority.LOW)
+//            viewModel.loadUntil(3_000, ProgressPriorityControl.Priority.LOW)
         }
     }
 

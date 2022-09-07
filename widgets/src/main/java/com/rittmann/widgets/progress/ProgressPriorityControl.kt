@@ -13,12 +13,13 @@ class ProgressPriorityControl(
     private var onCleared: () -> Unit = {}
 ) {
 
-    private val list = arrayListOf<ProgressModel>()
+    val list = arrayListOf<ProgressModel>()
     private var active = false
     private var onStartedBlocked = false
     private var onClearedBlocked = false
 
     fun configureCallbacksOnStarted(onStarted: () -> Unit) {
+        Log.i(TAG, "configureCallbacksOnStarted list $onStartedBlocked")
         if (onStartedBlocked.not())
             this.onStarted = onStarted
         onStartedBlocked = true
@@ -31,22 +32,24 @@ class ProgressPriorityControl(
     }
 
     fun add(model: ProgressModel): ProgressModel {
-       var added = false
-
-        val id = generateId()
+        Log.i(TAG, "Adding list model $model")
+        var added = false
 
         var found = false
-        for (l in list)
-            if (l.id == id) {
+        for (l in list) {
+            if (l.id == model.id) {
                 found = true
                 break
             }
+        }
+        Log.i(TAG, "Adding found $found")
 
         if (found.not()) {
             list.add(model)
             added = true
         }
 
+        Log.i(TAG, "Adding added $added, list.size=${list.size}")
         if (added && list.size == 1) {
             show()
         }
@@ -58,6 +61,7 @@ class ProgressPriorityControl(
     }
 
     fun add(priority: Priority, ignoreId: Boolean = false): ProgressModel {
+        Log.i(TAG, "Adding list priority $priority")
         var model = ProgressModel(priority = priority)
         var added = false
 
@@ -75,7 +79,7 @@ class ProgressPriorityControl(
                 }
 
             if (found.not()) {
-                model = ProgressModel(id = id, priority = priority)
+                model = model.copy(id = id)
                 list.add(model)
                 added = true
             }
@@ -141,6 +145,7 @@ class ProgressPriorityControl(
     }
 
     private fun show() {
+        Log.i(TAG, "show active=$active, onStarted=$onStarted")
         if (active.not()) {
             onStarted.invoke()
             active = true
@@ -164,7 +169,7 @@ class ProgressPriorityControl(
     }
 
     data class ProgressModel(
-        val id: String = IGNORE_ID,
+        val id: String = "",
         val priority: Priority = Priority.LOW,
         var added: Boolean = true
     )
@@ -179,7 +184,6 @@ class ProgressPriorityControl(
 
     companion object {
 
-        const val IGNORE_ID = "-01"
         const val TAG = "PROGRESS"
 
         /**

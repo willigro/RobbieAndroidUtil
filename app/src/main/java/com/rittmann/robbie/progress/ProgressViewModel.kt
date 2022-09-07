@@ -26,10 +26,8 @@ class ProgressViewModel : BaseViewModel() {
 
     fun loadUntilModel(
         untilN: Long,
-        priority: ProgressPriorityControl.Priority,
+        model: ProgressPriorityControl.ProgressModel,
     ) {
-        val model =
-            ProgressPriorityControl.ProgressModel(priority = priority)
         showProgress(model)
 
         GlobalScope.launch {

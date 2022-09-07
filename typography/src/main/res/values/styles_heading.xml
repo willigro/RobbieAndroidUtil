@@ -4,25 +4,26 @@
     <!-- Normal -->
     <style name="Robbie.H1" parent="Robbie.Text">
         <item name="android:textSize">@dimen/robbie_text_size_h1</item>
+        <item name="android:textColor">?robbieHeadingTextColor</item>
     </style>
 
-    <style name="Robbie.H2" parent="Robbie.Text">
+    <style name="Robbie.H2" parent="Robbie.H1">
         <item name="android:textSize">@dimen/robbie_text_size_h2</item>
     </style>
 
-    <style name="Robbie.H3" parent="Robbie.Text">
+    <style name="Robbie.H3" parent="Robbie.H1">
         <item name="android:textSize">@dimen/robbie_text_size_h3</item>
     </style>
 
-    <style name="Robbie.H4" parent="Robbie.Text">
+    <style name="Robbie.H4" parent="Robbie.H1">
         <item name="android:textSize">@dimen/robbie_text_size_h4</item>
     </style>
 
-    <style name="Robbie.H5" parent="Robbie.Text">
+    <style name="Robbie.H5" parent="Robbie.H1">
         <item name="android:textSize">@dimen/robbie_text_size_h5</item>
     </style>
 
-    <style name="Robbie.H6" parent="Robbie.Text">
+    <style name="Robbie.H6" parent="Robbie.H1">
         <item name="android:textSize">@dimen/robbie_text_size_h6</item>
     </style>
 

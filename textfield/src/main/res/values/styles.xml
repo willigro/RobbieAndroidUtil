@@ -10,8 +10,10 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textAllCaps">@bool/robbie_input_text_all_caps</item>
-        <item name="android:padding">@dimen/robbie_input_text_padding_default_all_sides</item>
-        <item name="android:paddingBottom">@dimen/robbie_input_text_padding_default_bottom</item>
+<!--        <item name="android:paddingLeft">@dimen/robbie_input_text_padding_default_left</item>-->
+<!--        <item name="android:paddingRight">@dimen/robbie_input_text_padding_default_right</item>-->
+<!--        <item name="android:paddingTop">@dimen/robbie_input_text_padding_default_top</item>-->
+<!--        <item name="android:paddingBottom">@dimen/robbie_input_text_padding_default_bottom</item>-->
         <item name="android:inputType">text</item>
         <item name="android:textColor">@color/robbie_color_text_dark_primary_pure</item>
     </style>
